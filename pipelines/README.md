@@ -56,6 +56,14 @@ pipeline action to restart without repeating previously satisfied
 steps, e.g., if a server crashes during step 3, steps 1 and 2 
 would not need to be repeated.
 
+### Conda environments
+
+All pipelines use conda to construct an appropriate execution
+environment with proper versions of all required program
+dependencies, for explicit version control, reproducibility
+and portability. These might include any program called from 
+the command line or a shell script to do data analysis work.
+
 ## Pipeline construction
 
 Create one folder in '\<suite\>/pipelines' for each distinct data 
@@ -161,6 +169,59 @@ mdi <command> --help
 mdi <pipeline> --help
 mdi <pipeline> <action> --help
 ```
+
+### Job configuration files (specifying pipeline options)
+
+You may provide all options through the command line 
+as you would for any typical program.  Use '--help' to
+see the available options. 
+
+However, we recommend instead writing a '\<data\>.yml'
+configuration file to set options, and then providing
+the path to that file to the pipeline. This makes
+it easy to assemble jobs and to keep a history of what
+was done, especially if you use our job manager.
+
+Config files are valid YAML files, although the interpreter
+we use to read them only processes a subset of YAML features.
+[Learn more about YAML on the internet](https://www.google.com/search?q=yaml+basics), 
+or just proceed, it is intuitive and easy.
+
+### Config file templates
+
+To get a template to help you write your config file use:
+
+```bash
+mdi <pipelineName> template --help
+mdi <pipelineName> template -a -c
+```
+
+In general, the syntax is:
+
+```yml
+# <data>.yml
+---
+pipeline: pipelineName
+variables:
+    VAR_NAME: value
+pipelineAction:
+    optionFamily:
+        optionName1: $VAR_NAME # a single keyed option value
+        optionName2:
+            - valueA # an array of option values, executed in parallel
+            - valueB
+execute:
+    - pipelineAction
+```
+
+As a convenience for when you get tired of have many files
+with the same option values (e.g., a shared data directory), you may
+also create a file called 'pipeline.yml' or '\<pipelineName\>.yml'
+in the same directory as '\<data\>.yml'. Options will be read
+from 'pipeline.yml' first, then '\<data\>.yml', then finally
+from any values you specify on the command line, with the last 
+value that is read taking precedence, i.e., options specified on the 
+command line have the highest precedence.
 
 ### Common workflow actions and options
 
