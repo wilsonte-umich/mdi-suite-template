@@ -1,0 +1,105 @@
+---
+#--------------------------------------------------------------------
+# pipeline-specific configuration for actions, options and dependencies
+#--------------------------------------------------------------------
+pipeline:
+    name: _template
+    description: "a working demo that serves as a template for new pipelines"
+
+#--------------------------------------------------------------------
+# pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
+# by convention, if there is only a single action it is called 'do'
+#--------------------------------------------------------------------
+actions: 
+    do:
+        order: 1
+        thread: do
+        optionFamilies:
+            - demo
+        condaFamilies:
+            - base-0.1
+            - r-essentials-4.1
+        resources:
+            required:
+                total-ram: 2G
+            recommended: 
+                n-cpu: 1
+                ram-per-cpu: 2G
+        job-manager:
+            recommended:
+                time-limit: 1:00:00
+        description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"  
+    snakemake:
+        order: 2
+        thread: snakemake
+        optionFamilies:
+            - demo      # this is a private options module
+            - snakemake # this is a shared options module
+        condaFamilies:
+            - base-0.1  # includes snakemake
+            - r-essentials-4.1
+        resources:
+            required:
+                total-ram: 4G
+            recommended: 
+                n-cpu: 2
+                ram-per-cpu: 2G
+        job-manager:
+            recommended:
+                time-limit: 1:00:00
+        description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+
+#--------------------------------------------------------------------
+# options available to action commands, organized into families for clarity
+# use this section to:
+#   - add a new, pipeline-specific option family
+#   - override keyed parameters of shared optionFamilies invoked above
+#   - append to arrayed parameters of inherited options       
+#--------------------------------------------------------------------
+optionFamilies:     
+    demo:
+        options:
+            input-dir: 
+                order: 1
+                short: i
+                type: string
+                required: true
+                default: null
+                directory:
+                    must-exist: true
+                description: "the directory whose contents will be listed in the output"   
+            option-1:
+                order: 2
+                short: a
+                type: integer
+                required: false
+                default: 99
+                description: "this is an optional integer configuration option"
+            option-2: 
+                order: 3
+                short: b
+                type: boolean
+                required: false
+                default: false
+                description: "this is an optional boolean (i.e, logical flag) option"
+
+#--------------------------------------------------------------------
+# optional pipeline-specific conda dependencies; overrides any shared environments
+#--------------------------------------------------------------------
+#condaFamilies:
+    
+#--------------------------------------------------------------------
+# optional configuration to create an output package for loading into Stage2 App(s)
+#--------------------------------------------------------------------
+package:
+    uploadType: _template # a signal to the Stage 2 framework regarding the package contents
+    packageAction: do # the pipeline action after which the Portal package should assembled
+    files:
+        directoryContents:
+            type: file-list
+            file: $DATA_FILE_PREFIX.directoryContents.txt
+        dataFrame:
+            type: sample-value-matrix
+            header: true
+            separator: comma
+            file: $DATA_FILE_PREFIX.mtcars.csv
