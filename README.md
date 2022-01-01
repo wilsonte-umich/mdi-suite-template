@@ -80,7 +80,7 @@ suites:
     - GIT_USER/NAME-mdi-tools # either format works
 ```
 
-and then re-run the MDI installation process, which will go much faster
+and then repeating the MDI installation process, which will go much faster
 as now it only needs to add new components required by your pipelines and apps.
 Alternatively, you can install new suites from within the Stage 2 web server, 
 or run the following from the command line:
@@ -169,7 +169,7 @@ after **editing the suite name below** and **deleting this paragraph**.
 
 ### Install the MDI framework
 
-Use the MDI installer to install the code needed to run our tools.
+First, use the MDI installer to install the code needed to run our tools.
 
 ```bash
 git clone https://github.com/MiDataInt/mdi.git
@@ -194,7 +194,7 @@ suites:
     - GIT_USER/NAME-mdi-tools
 ```
 
-and then re-running the MDI installation process, which will go much faster
+and then re-run <code>install.sh</code>, which will go much faster
 the second time. Alternatively, you can install this suite from within the 
 Stage 2 web server, or run the following from the command line:
 
