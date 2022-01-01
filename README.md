@@ -86,8 +86,8 @@ Alternatively, you can install new suites from within the Stage 2 web server,
 or run the following from the command line:
 
 ```bash
-mdi add https://github.com/GIT_USER/NAME-mdi-tools.git
-mdi add GIT_USER/NAME-mdi-tools # either format works
+mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
+mdi add -p -s GIT_USER/NAME-mdi-tools # either format works
 ```
 
 If your repository is public (recommended), anyone will be able to perform the steps
@@ -199,7 +199,7 @@ the second time. Alternatively, you can install this suite from within the
 Stage 2 web server, or run the following from the command line:
 
 ```bash
-mdi add GIT_USER/NAME-mdi-tools 
+mdi add -p -s GIT_USER/NAME-mdi-tools 
 ```
 
 ### Run a Stage 1 pipeline from the command line
