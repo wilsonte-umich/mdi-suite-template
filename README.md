@@ -124,7 +124,8 @@ to find specific lines you need to edit to match your needs:
 - _config.yml
 - overview.md
 - LICENSE (adjust the license type, year, and licensee as needed)
-- README.md (to delete these developer instructions, if desired)
+- aws-mdi.md (specify the resources needed for a public server, if relevant)
+- README.md (delete these developer instructions, if desired)
   
 ### Activate your documentation web page on github.io
   
