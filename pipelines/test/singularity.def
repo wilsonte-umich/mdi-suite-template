@@ -1,0 +1,58 @@
+# https://sylabs.io/guides/3.9/user-guide/definition_files.html
+
+# REQUIRED: initialize the base Linux operating system
+Bootstrap: docker
+From: ubuntu:20.04
+Stage: build
+
+# REQUIRED: install the system-level requirements of the pipeline
+# do NOT install specialized programs here (use conda), only libraries, etc.
+%post
+    apt-get update && apt-get install -y \
+        nano
+
+%labels
+    Suite    suiteTest
+    Pipeline test
+############################
+
+
+
+# copy the pipelines-relevant mdi installation into the container
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/srv/mdi/environments
+    cp -r ./config      ${SINGULARITY_ROOTFS}/srv/mdi/config
+    cp -r ./config      ${SINGULARITY_ROOTFS}/srv/mdi/config
+    cp -r ./frameworks  ${SINGULARITY_ROOTFS}/srv/mdi/frameworks
+    cp -r ./suites      ${SINGULARITY_ROOTFS}/srv/mdi/suites
+    cp    ./mdi         ${SINGULARITY_ROOTFS}/srv/mdi/mdi
+    cp    ./*.tmp       ${SINGULARITY_ROOTFS}/srv/mdi
+
+# do not change this scriptlet
+%post
+    # install git
+    apt-get update && apt-get install -y git
+    # need to install conda (or mamba)
+
+    # checkout target version of suite
+    SUITE_NAME=`cat /srv/mdi/SUITE_NAME.tmp`;
+    VERSION=`cat /srv/mdi/VERSION.tmp`;    
+    cd /srv/mdi/suites/definitive/${SUITE_NAME}
+    git checkout ${VERSION}
+
+    # creata conda environments of software required by the pipeline
+    PIPELINE_NAME=`cat /srv/mdi/PIPELINE_NAME.tmp`; 
+    /srv/mdi/mdi ${PIPELINE_NAME} conda --list
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+    # symbolically link /srv/mdi to $MDI_DIR
+    # what exactly should the container run? probably source Workflow.sh
+
+# add some useful labels to the container image
+%labels
+    Source   "Michigan Data Interface"
+# %help
+#     Michigan Data Interface, ${SUITE_NAME}//${PIPELINE_NAME}=${VERSION}
