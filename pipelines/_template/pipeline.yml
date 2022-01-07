@@ -7,6 +7,14 @@ pipeline:
     description: "a working demo that serves as a template for new pipelines"
 
 #--------------------------------------------------------------------
+# optional version declarations; if present, must come before 'actions'
+#--------------------------------------------------------------------
+# versions:
+#     pipeline: p0.0.0 # semantic version of pipeline (not suite); use 'p' for pipeline (not 'v'); required if container supported
+#     suites: 
+#         suite-name: v0.0.0 # required semantic version of a suite called as 'suite/module', etc. [latest]
+
+#--------------------------------------------------------------------
 # pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
 # by convention, if there is only a single action it is called 'do'
 #--------------------------------------------------------------------
@@ -29,6 +37,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"  
+        container: unsupported # valid values: unsupported, optional, required [unsupported]        
     snakemake:
         order: 2
         thread: snakemake
@@ -48,6 +57,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+        container: unsupported # valid values: unsupported, optional, required [unsupported]     
 
 #--------------------------------------------------------------------
 # options available to action commands, organized into families for clarity
