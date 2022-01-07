@@ -139,6 +139,7 @@ which are useful for locating files and other purposes:
 | **ACTION_TARGET**     | $SCRIPT_TARGET    | a synonym for above |
 | **MODULES_DIR**       | | the directory that contains all shared code modules in the working suite' |
 | **DATA_NAME_DIR**     | $OUTPUT_DIR/$DATA_NAME                | where output files should be placed |
+| **TASK_DIR**          | $DATA_NAME_DIR                        | a synonym for above |
 | **DATA_FILE_PREFIX**  | $DATA_NAME_DIR/$DATA_NAME             | prefix to use for output file names |
 | **LOGS_DIR**          | $DATA_NAME_DIR/$PIPELINE_NAME_logs    | where log files should be placed |
 | **LOG_FILE_PREFIX**   | $LOGS_DIR/$DATA_NAME                  | prefix to use for log file names |
