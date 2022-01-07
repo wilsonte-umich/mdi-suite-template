@@ -1,0 +1,44 @@
+# https://sylabs.io/guides/3.9/user-guide/definition_files.html
+
+# REQUIRED: initialize the base Linux operating system
+Bootstrap: docker
+From: ubuntu:20.04
+Stage: build
+
+# REQUIRED: install the system-level requirements of the pipeline
+# do NOT install specialized programs here (use conda), only libraries, etc.
+%post
+    apt-get update && apt-get install -y \
+        nano
+
+# please do not edit anything below this line (or, put this elsewhere...)
+
+# copy the pipelines-relevant mdi installation into the container
+# do not change this scriptlet
+%files
+    ${MDI_DIR}/config      /srv/mdi/config
+    ${MDI_DIR}/frameworks  /srv/mdi/frameworks
+    ${MDI_DIR}/suites      /srv/mdi/suites
+    ${MDI_DIR}/mdi         /srv/mdi/mdi
+
+# creata conda environments of software required by the pipeline
+%post
+    cd /srv/mdi/suites/definitive/${SUITE_NAME}
+    git checkout ${VERSION}
+    /srv/mdi/mdi ${PIPELINE_NAME} conda --create --force
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+    # symbolically link /srv/mdi to $MDI_DIR
+    # what exactly should the container run? probably source Workflow.sh
+
+# add some useful labels to the container image
+%labels
+    Source   "Michigan Data Interface"
+    Suite    ${SUITE_NAME}
+    Pipeline ${PIPELINE_NAME}
+    Version  ${VERSION}
+%help
+    Michigan Data Interface, ${SUITE_NAME}//${PIPELINE_NAME}=${VERSION}
