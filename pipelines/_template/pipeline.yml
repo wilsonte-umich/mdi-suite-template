@@ -1,18 +1,17 @@
 ---
 #--------------------------------------------------------------------
-# pipeline-specific configuration for actions, options and dependencies
+# pipeline metadata
 #--------------------------------------------------------------------
 pipeline:
     name: _template
     description: "a working demo that serves as a template for new pipelines"
+    # version: v0.0.0 # optional version of this pipeline (not its suite); required if containers are used
 
 #--------------------------------------------------------------------
-# optional version declarations; if present, must come before 'actions'
+# optional external suite version declarations (must come before 'actions')
 #--------------------------------------------------------------------
-# versions:
-#     pipeline: v0.0.0 # semantic version of this pipeline (not its suite); required if containers are supported
-#     suites: 
-#         suite-name: v0.0.0 # required semantic version of a suite invoked as 'suite//module', etc. [latest]
+# suiteVersions:
+#     suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
 
 #--------------------------------------------------------------------
 # pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.

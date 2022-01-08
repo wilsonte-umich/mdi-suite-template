@@ -18,11 +18,11 @@ source $MODULES_DIR/demo/demo.sh
 
 checkWorkflowStep 1 do-snakemake Snakefile
 
-if [ "$SN_FORCEALL" != "" ]; then rm -rf $DATA_NAME_DIR/.snakemake; fi
+if [ "$SN_FORCEALL" != "" ]; then rm -rf $TASK_DIR/.snakemake; fi
 snakemake $SN_DRY_RUN $SN_FORCEALL \
     --cores $N_CPU \
     --snakefile $ACTION_DIR/Snakefile \
-    --directory $DATA_NAME_DIR \
+    --directory $TASK_DIR \
     $DATA_NAME.directoryContents.txt $DATA_NAME.mtcars.csv
 checkPipe
 
