@@ -10,9 +10,9 @@ pipeline:
 # optional version declarations; if present, must come before 'actions'
 #--------------------------------------------------------------------
 # versions:
-#     pipeline: p0.0.0 # semantic version of pipeline (not suite); use 'p' for pipeline (not 'v'); required if container supported
+#     pipeline: v0.0.0 # semantic version of this pipeline (not its suite); required if containers are supported
 #     suites: 
-#         suite-name: v0.0.0 # required semantic version of a suite called as 'suite/module', etc. [latest]
+#         suite-name: v0.0.0 # required semantic version of a suite invoked as 'suite//module', etc. [latest]
 
 #--------------------------------------------------------------------
 # pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
