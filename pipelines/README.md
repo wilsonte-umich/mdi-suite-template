@@ -131,10 +131,10 @@ which are useful for locating files and other purposes:
 
 | variable name | value | description |
 |---------------|---------------|-------------|
-| **TASK_DIR**          | $OUTPUT_DIR/$DATA_NAME           | where output files should be placed |
-| **DATA_FILE_PREFIX**  | $TASK_DIR/$DATA_NAME             | prefix to use for output file names |
-| **PLOTS_DIR**         | $TASK_DIR/plots                  | where output plots should be placed |
-| **PLOT_PREFIX**       | $PLOTS_DIR/$DATA_NAME[.$GENOME]  | prefix to use for output plot names |
+| **TASK_DIR**          | $OUTPUT_DIR/$DATA_NAME | where output files should be placed |
+| **DATA_FILE_PREFIX**  | $TASK_DIR/$DATA_NAME   | prefix to use for output file names |
+| **PLOTS_DIR**         | $TASK_DIR/plots        | where output plots should be placed |
+| **PLOT_PREFIX**       | $PLOTS_DIR/$DATA_NAME  | prefix to use for output plot names |
 | **SUITE_NAME**        | | the name of the tool suite that carries the running pipeline |
 | **PIPELINE_NAME**     | | the name of the running pipeline |
 | **PIPELINE_ACTION**   | | the name of the running pipeline action being applied to $DATA_NAME |
