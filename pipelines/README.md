@@ -64,6 +64,16 @@ dependencies, for explicit version control, reproducibility
 and portability. These might include any program called from 
 the command line or a shell script to do data analysis work.
 
+### Singularity containers
+
+When implemented by a tool suite developer, any pipeline can
+be wrapped into an optional Singularity container to provide complete
+control over the entirety of the operating system and codebase
+available to support the pipeline. The operating system, e.g.,
+Ubuntu, and system libraries are specified in 'singularity.def',
+while program dependencies are provided by conda environments
+pre-installed into the container.
+
 ## Pipeline construction
 
 Create one folder in '\<suite\>/pipelines' for each distinct data 
@@ -127,7 +137,7 @@ First, all pipeline options are available, where an option named "--abc-def"
 sets environment variable "ABC_DEF", e.g., '--n-cpu' becomes N_CPU, etc.
 
 Additionally, the launcher sets the following derivative environment variables,
-which are useful for locating files and other purposes:
+which are useful for locating files and for other purposes:
 
 | variable name | value | description |
 |---------------|---------------|-------------|
@@ -206,7 +216,7 @@ In general, the syntax is:
 ```yml
 # <data>.yml
 ---
-pipeline: pipelineName
+pipeline: [suiteName/]pipelineName[=version]
 variables:
     VAR_NAME: value
 pipelineAction:
@@ -218,6 +228,13 @@ pipelineAction:
 execute:
     - pipelineAction
 ```
+
+The 'suiteName' and 'version' components of the pipeline declaration are optional, however, including suiteName can improve clarity and ensure that
+you are always using the tool you intend. If provided, the version designation should be either:
+- a release tag of the form 'v0.0.0'
+- 'latest', to use the most recent release tag [the default]
+- 'pre-release', to use the development code at the tip of the main branch
+- for developers, the name of a code branch in the git repository
 
 As a convenience for when you get tired of have many files
 with the same option values (e.g., a shared data directory), you may

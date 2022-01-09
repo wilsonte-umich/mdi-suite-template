@@ -34,11 +34,11 @@ pipeline.yml may also attempt to load an environment, module, or option family f
 a different pipelines suite, which of course must also be installed into 
 the working MDI directory.
 
-To use external components in pipeline.yml, simply prefix the component path
+To use external components in pipeline.yml, prefix the component path
 with '\<suite\>//', where \<suite\> is the name of the external suite from
 which to load the component.
 
-```
+```yml
 # pipeline.yml
 actions:
     actionName:
@@ -49,6 +49,18 @@ actions:
             - <suite>//shared-options
 ```
 
-Please note: the pipelines framework will only look for external component files
-in _definitive_ suites repositories; we cannot assume that an end 
+The pipelines framework will only look for external component files
+in _definitive_ suite repositories; we cannot assume that an end 
 user will have an active fork of any given external repository.
+
+If your pipeline requires a specific version of the external tool suite,
+you may override the default version of 'latest' at the pipeline level 
+as follows:
+
+```yml
+# pipeline.yml
+pipeline: ...
+suiteVersions: # must come before 'actions'
+    suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
+actions: ...
+```
