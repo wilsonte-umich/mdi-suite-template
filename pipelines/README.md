@@ -64,6 +64,16 @@ dependencies, for explicit version control, reproducibility
 and portability. These might include any program called from 
 the command line or a shell script to do data analysis work.
 
+### Singularity containers
+
+When implemented by a tool suite developer, any pipeline can
+be wrapped into an optional Singularity container to provide complete
+control over the entirety of the operating system and codebase
+available to support the pipeline. The operating system, e.g.,
+Ubuntu, and system libraries are specified in 'singularity.def',
+while program dependencies are provided by conda environments
+pre-installed into the container.
+
 ## Pipeline construction
 
 Create one folder in '\<suite\>/pipelines' for each distinct data 
@@ -73,9 +83,10 @@ in the '\<suite\>/shared' folder.
 
 Only one file is essential and must be present, called 'pipeline.yml'.
 
-Optional files include 'README.md', to document the pipeline, 
-and 'pipeline.pl', which can be used to set custom environment variables
-(see the _template pipeline for usage).
+Optional files include (see the _template pipeline for usage):
+- 'README.md', to document the pipeline 
+- 'pipeline.pl', which can be used to set custom environment variables 
+- 'singularity.def', if your pipeline will offer or require a container to run
 
 ### Pipeline structure and definition
 
@@ -95,11 +106,11 @@ other code, make calls to programs, including calls to nested workflow managers 
 
 ```bash
 # pipelines/<pipeline>/<action>/Worflow.sh
-TARGET_FILE=XYZ
+TARGET_FILE=$DATA_NAME.XYZ
 snakemake $SN_DRY_RUN $SN_FORCEALL \
     --cores $N_CPU \
-    --snakefile $SCRIPT_DIR/Snakefile \
-    --directory $BINS_DIR \
+    --snakefile $ACTION_DIR/Snakefile \
+    --directory $TASK_DIR \
     $TARGET_FILE
 checkPipe
 ```
@@ -107,8 +118,8 @@ checkPipe
 ### Output conventions
 
 Data files written by a pipeline are always placed into a folder you specify using 
-option '--output-dir'. The file names are always prefixed based on the value of option
-'--data-name'; specifically, output files are placed in a sub-directory of output-dir and named as:
+options '--output-dir' and '--data-name'. File names should always be prefixed with the value of option
+'--data-name', such that pipeline output files follow the pattern:
 
 ```
 <output-dir>/<data-name>/<data-name>.XXX
@@ -125,30 +136,34 @@ to your action script.
 First, all pipeline options are available, where an option named "--abc-def" 
 sets environment variable "ABC_DEF", e.g., '--n-cpu' becomes N_CPU, etc.
 
-Additionally, the launcher sets the following environment variables,
-which are useful for locating files and other purposes:
+Additionally, the launcher sets the following derivative environment variables,
+which are useful for locating files and for other purposes:
 
 | variable name | value | description |
 |---------------|---------------|-------------|
+| **TASK_DIR**          | $OUTPUT_DIR/$DATA_NAME | where output files should be placed |
+| **DATA_FILE_PREFIX**  | $TASK_DIR/$DATA_NAME   | prefix to use for output file names |
+| **PLOTS_DIR**         | $TASK_DIR/plots        | where output plots should be placed |
+| **PLOT_PREFIX**       | $PLOTS_DIR/$DATA_NAME  | prefix to use for output plot names |
+| **SUITE_NAME**        | | the name of the tool suite that carries the running pipeline |
 | **PIPELINE_NAME**     | | the name of the running pipeline |
-| **PIPELINE_ACTION**   | | the name of the running pipeline action |
-| **PIPELINE_DIR**      | | the root directory of the pipeline, which contains 'pipeline.yml' |
-| **SCRIPT_DIR**        | | the folder that contains the scripts for the running action, including Workflow.sh |
-| **SCRIPT_TARGET**     | | the primary action script usually '$SCRIPT_DIR/Workflow.sh' (unless overridden) |
-| **ACTION_DIR**        | $SCRIPT_DIR       | a synonym for above |
-| **ACTION_TARGET**     | $SCRIPT_TARGET    | a synonym for above |
-| **MODULES_DIR**       | | the directory that contains all shared code modules in the working suite' |
-| **DATA_NAME_DIR**     | $OUTPUT_DIR/$DATA_NAME                | where output files should be placed |
-| **DATA_FILE_PREFIX**  | $DATA_NAME_DIR/$DATA_NAME             | prefix to use for output file names |
-| **LOGS_DIR**          | $DATA_NAME_DIR/$PIPELINE_NAME_logs    | where log files should be placed |
-| **LOG_FILE_PREFIX**   | $LOGS_DIR/$DATA_NAME                  | prefix to use for log file names |
-| **TASK_LOG_FILE**     | $LOG_FILE_PREFIX.$PIPELINE_ACTION.task.log | the main log file for a running task; starts with job config YAML |
-| **PLOTS_DIR**         | $DATA_NAME_DIR/plots                  | where output plots should be placed |
-| **PLOT_PREFIX**       | $PLOTS_DIR/$DATA_NAME[.$GENOME]       | prefix to use for output plot names |
+| **PIPELINE_ACTION**   | | the name of the running pipeline action being applied to $DATA_NAME |
+| **TASK_PIPELINE_DIR** | $TASK_DIR/$PIPELINE_NAME            | status, code and log files specific to the running pipeline and task |
+| **TASK_ACTION_DIR**   | $TASK_PIPELINE_DIR/$PIPELINE_ACTION | code and log files specific to the running action and task |
+| **SUITES_DIR**        | $TASK_ACTION_DIR/suites                | the directory where working versions of accessible MDI code suites are found |
+| **SUITE_DIR**         | $SUITES_DIR/$SUITE_NAME                | the working root directory of tool suite $SUITE_NAME |
+| **PIPELINE_DIR**      | $SUITE_DIR/pipelines/$PIPELINE_NAME    | the root directory of pipeline $PIPELINE_NAME, which contains 'pipeline.yml' |
+| **ACTION_DIR**        | $PIPELINE_DIR/$PIPELINE_ACTION         | the directory that contains the scripts for action $PIPELINE_ACTION, including 'Workflow.sh' |
+| **SCRIPT_DIR**        | $ACTION_DIR                            | legacy synonym for above |
+| **ACTION_SCRIPT**     |                                        | the primary action script, usually '$ACTION_DIR/Workflow.sh' (unless overridden) |
+| **SCRIPT_TARGET**     | $ACTION_SCRIPT                         | legacy synonym for above |
+| **MODULES_DIR**       | $SUITE_DIR/shared/modules              | the directory that contains all shared code modules in suite $SUITE_NAME |
+| **LOGS_DIR**          | $TASK_ACTION_DIR/logs | where log files should be placed |
+| **LOG_FILE_PREFIX**   | $LOGS_DIR/$DATA_NAME  | prefix to use for log file names |
+| **TASK_LOG_FILE**     | $LOG_FILE_PREFIX.$PIPELINE_NAME.$PIPELINE_ACTION.task.log | the main log file for a running task; starts with job config YAML |
 | **RAM_PER_CPU_INT**   | int($RAM_PER_CPU)                     | e.g., 1M becomes 1000000 |
 | **TOTAL_RAM_INT**     | $RAM_PER_CPU_INT * $N_CPU             | RAM available to entire job, e.g., 1000000 * 4 = 4000000 |
 | **TOTAL_RAM**         | $TOTAL_RAM_INT (as string)            | e.g., 4000000 becomes 4M |
-|---------------|---------------|-------------|
 
 ## Pipeline execution
 
@@ -201,7 +216,7 @@ In general, the syntax is:
 ```yml
 # <data>.yml
 ---
-pipeline: pipelineName
+pipeline: [suiteName/]pipelineName[=version]
 variables:
     VAR_NAME: value
 pipelineAction:
@@ -213,6 +228,13 @@ pipelineAction:
 execute:
     - pipelineAction
 ```
+
+The 'suiteName' and 'version' components of the pipeline declaration are optional, however, including suiteName can improve clarity and ensure that
+you are always using the tool you intend. If provided, the version designation should be either:
+- a release tag of the form 'v0.0.0'
+- 'latest', to use the most recent release tag [the default]
+- 'pre-release', to use the development code at the tip of the main branch
+- for developers, the name of a code branch in the git repository
 
 As a convenience for when you get tired of have many files
 with the same option values (e.g., a shared data directory), you may

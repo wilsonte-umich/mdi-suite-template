@@ -10,7 +10,7 @@ an external pipelines suite.
 Action modules are fully encapsulated actions that can be added to a 
 pipeline as follows:
 
-```
+```yml
 # pipeline.yml
 actions:
     actionName: # replace 'actionName' with the name of your action
@@ -28,7 +28,7 @@ by the module.
 
 When writing an action module, use this format:
 
-```
+```yml
 # shared/modules/example/path-0.1/module.yml
 action:
     optionFamilies:
@@ -55,7 +55,7 @@ within a pipeline action that you configured yourself. Use of code in this
 way is more varied and flexible and hard to completely exemplify. One use
 case would be a module that provides a Snakefile useful to multiple pipelines:
 
-```
+```bash
 # Workflow.sh
 checkWorkflowStep 1 exampleName example/path
 snakemake --snakefile $MODULES_DIR/example/path-0.1/Snakefile
@@ -72,7 +72,7 @@ which of course must also be installed into the working MDI directory.
 
 To use an external action module in pipeline.yml, the syntax is:
 
-```
+```yml
 # pipeline.yml
 actions:
     actionName:
@@ -81,7 +81,7 @@ actions:
 
 To use an external step module file in your pipeline scripts, the syntax is:
 
-```
+```bash
 # Workflow.sh
 $SUITES_DIR/<suite>/shared/modules/example/path-0.1/<file>
 ```

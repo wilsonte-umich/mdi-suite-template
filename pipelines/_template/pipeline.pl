@@ -12,7 +12,7 @@ use warnings;
 # command line option '--abc-def' becomes environment variable 'ABC_DEF'
 # perl environment variable '$ENV{ABC_DEF}' becomes $ABC_DEF or ${ABC_DEF} in shell
 
-# all upstream variables may be accessed here, e.g, PIPELINE_ACTION, PIPELINE_DIR, etc.
+# all task environment variables may be accessed here
 
 # example:
 # $ENV{XXX_FILE} = "$ENV{DATA_FILE_PREFIX}.xxx";
