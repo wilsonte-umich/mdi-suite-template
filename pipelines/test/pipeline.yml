@@ -4,7 +4,14 @@
 #--------------------------------------------------------------------
 pipeline:
     name: test
-    description: "test build"
+    description: "pipeline for testing containter builds"
+    version: v0.3.2 # optional version of this pipeline (not its suite); required if containers are used
+
+#--------------------------------------------------------------------
+# optional external suite version declarations (must come before 'actions')
+#--------------------------------------------------------------------
+# suiteVersions:
+#     suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
 
 #--------------------------------------------------------------------
 # pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
@@ -29,6 +36,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"  
+        container: supported # valid values: unsupported, supported, required [unsupported]        
     snakemake:
         order: 2
         thread: snakemake
@@ -48,6 +56,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+        container: unsupported # valid values: unsupported, supported, required [unsupported]
 
 #--------------------------------------------------------------------
 # options available to action commands, organized into families for clarity

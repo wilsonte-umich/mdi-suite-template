@@ -1,11 +1,15 @@
 #------------------------------------------------------------------------------
-# these definition file sections must be specified for each pipeline
-# that offers Singularity containers, otherwise they may be ignored
+# These definition file sections must be completed for each pipeline
+# that offers Singularity containers, otherwise this file may be ignored.
+#------------------------------------------------------------------------------
+# The same container is used to execute all supported actions in a pipeline. If different 
+# containers are required for different actions, they must be in different pipelines.
 #------------------------------------------------------------------------------
 # https://sylabs.io/guides/latest/user-guide/definition_files.html
 #------------------------------------------------------------------------------
 
 # initialize the base Linux operating system
+# you should nearly always start by pulling a base Linux image from Docker hub
 Bootstrap: docker
 From: ubuntu:20.04
 Stage: build
@@ -13,9 +17,9 @@ Stage: build
 # install system-level requirements such as libraries and common system utilities
 # do NOT install specialized programs here (use conda definitions in pipeline.yml)
 %post
-    apt-get update && apt-get install -y \
-        nano
+    # apt-get update && apt-get install -y \
+    #     PACKAGE_NAME
 
 # if desired, you may include additional definition file sections below, but be aware
 # that common required definition sections will be appended by the pipelines framework
-# usually, only the sections above need to be defined in this file
+# usually, only the sections above need to be provided in this file
