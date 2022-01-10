@@ -36,7 +36,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"  
-        container: unsupported # valid values: unsupported, optional, required [unsupported]        
+        container: unsupported # valid values: unsupported, supported, required [unsupported]        
     snakemake:
         order: 2
         thread: snakemake
@@ -56,7 +56,7 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
-        container: unsupported # valid values: unsupported, optional, required [unsupported]     
+        container: supported # valid values: unsupported, supported, required [unsupported]
 
 #--------------------------------------------------------------------
 # options available to action commands, organized into families for clarity
