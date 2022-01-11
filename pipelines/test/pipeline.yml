@@ -1,20 +1,20 @@
 ---
 #--------------------------------------------------------------------
-# pipeline-specific configuration for actions, options and dependencies
+# REQUIRED: pipeline-specific configuration for actions, options and dependencies
 #--------------------------------------------------------------------
 pipeline:
     name: test
     description: "pipeline for testing containter builds"
-    version: v0.3.2 # optional version of this pipeline (not its suite); required if containers are used
+    version: v0.3.2 # OPTIONAL: version of this pipeline (not its suite); required if containers are used
 
 #--------------------------------------------------------------------
-# optional external suite version declarations (must come before 'actions')
+# OPTIONAL: external suite version dependencies (must come before 'actions')
 #--------------------------------------------------------------------
 # suiteVersions:
 #     suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
 
 #--------------------------------------------------------------------
-# pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
+# REQUIRED: pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
 # by convention, if there is only a single action it is called 'do'
 #--------------------------------------------------------------------
 actions: 
@@ -35,8 +35,7 @@ actions:
         job-manager:
             recommended:
                 time-limit: 1:00:00
-        description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"  
-        container: supported # valid values: unsupported, supported, required [unsupported]        
+        description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"    
     snakemake:
         order: 2
         thread: snakemake
@@ -56,10 +55,9 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
-        container: unsupported # valid values: unsupported, supported, required [unsupported]
 
 #--------------------------------------------------------------------
-# options available to action commands, organized into families for clarity
+# OPTIONAL: options available to action commands, organized into families for clarity
 # use this section to:
 #   - add a new, pipeline-specific option family
 #   - override keyed parameters of shared optionFamilies invoked above
@@ -93,12 +91,12 @@ optionFamilies:
                 description: "this is an optional boolean (i.e, logical flag) option"
 
 #--------------------------------------------------------------------
-# optional pipeline-specific conda dependencies; overrides any shared environments
+# OPTIONAL: pipeline-specific conda dependencies; overrides any shared environments
 #--------------------------------------------------------------------
 #condaFamilies:
     
 #--------------------------------------------------------------------
-# optional configuration to create an output package for loading into Stage2 App(s)
+# OPTIONAL: create an output package for loading into Stage2 App(s)
 #--------------------------------------------------------------------
 package:
     uploadType: _template # a signal to the Stage 2 framework regarding the package contents
@@ -112,3 +110,12 @@ package:
             header: true
             separator: comma
             file: $DATA_FILE_PREFIX.mtcars.csv
+
+#--------------------------------------------------------------------
+# OPTIONAL: enable version-controlled Singularity containers for this pipeline
+#--------------------------------------------------------------------
+container:
+    supported: true    # set to true if you maintain a container registry for this pipeline [false]
+    registry:  ghcr.io # REQUIRED: uri of your OCI-compatible, oras-accessible, container registry, e.g., ghcr.io
+    user:      wilsonte-umich # REQUIRED: the name of the owner, e.g., user or organization, at 'registry'
+    installer: apt-get # the installer program used by the container OS, typically either apt-get or yum [apt-get]
