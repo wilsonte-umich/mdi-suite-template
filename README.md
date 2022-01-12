@@ -163,7 +163,7 @@ carries it, which always has a one-to-one mapping to a tool version.
 
 Tool versions are also optional except for pipelines that
 offer Singularity containers, which are tagged with the major and minor
-versions of the pipeline, e.g. 'myPipeline-v0.0'. Note that the patch version is _not_
+versions of the pipeline, e.g. 'myPipeline:v0.0'. Note that the patch version is _not_
 included in container labels, so it is critical that either the minor or major pipeline
 version be advanced whenever a new system or program dependency is introduced for a 
 given pipeline on any of its actions. 

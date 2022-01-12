@@ -1,44 +1,30 @@
-# https://sylabs.io/guides/3.9/user-guide/definition_files.html
+#------------------------------------------------------------------------------
+# These definition file sections must be completed for each pipeline
+# that offers Singularity containers, otherwise this file may be ignored.
+#------------------------------------------------------------------------------
+# The same container is used to execute all actions in a pipeline. If different 
+# containers are required for different actions, they must be in different pipelines.
+#------------------------------------------------------------------------------
+# https://sylabs.io/guides/latest/user-guide/definition_files.html
+#------------------------------------------------------------------------------
 
-# REQUIRED: initialize the base Linux operating system
+# initialize the container base, typically a Linux image pulled from Docker Hub
 Bootstrap: docker
 From: ubuntu:20.04
 Stage: build
 
-# REQUIRED: install the system-level requirements of the pipeline
-# do NOT install specialized programs here (use conda), only libraries, etc.
+# install system-level requirements such as libraries and common system utilities
+# do not install specialized programs here (use conda definitions in pipeline.yml)
 %post
-    apt-get update && apt-get install -y \
-        nano
+    # apt-get update && apt-get install -y \
+    #     PACKAGE_NAME
 
-# please do not edit anything below this line (or, put this elsewhere...)
+# if desired, you may include additional definition file sections below, but be aware
+# that common required definition sections will be appended by the pipelines framework
+# usually, only the sections above need to be provided in this file
 
-# copy the pipelines-relevant mdi installation into the container
-# do not change this scriptlet
-%files
-    ${MDI_DIR}/config      /srv/mdi/config
-    ${MDI_DIR}/frameworks  /srv/mdi/frameworks
-    ${MDI_DIR}/suites      /srv/mdi/suites
-    ${MDI_DIR}/mdi         /srv/mdi/mdi
-
-# creata conda environments of software required by the pipeline
-%post
-    cd /srv/mdi/suites/definitive/${SUITE_NAME}
-    git checkout ${VERSION}
-    /srv/mdi/mdi ${PIPELINE_NAME} conda --create --force
-
-%runscript
-    echo "Container was created $NOW"
-    echo "Arguments received: $*"
-    exec echo "$@"
-    # symbolically link /srv/mdi to $MDI_DIR
-    # what exactly should the container run? probably source Workflow.sh
-
-# add some useful labels to the container image
-%labels
-    Source   "Michigan Data Interface"
-    Suite    ${SUITE_NAME}
-    Pipeline ${PIPELINE_NAME}
-    Version  ${VERSION}
-%help
-    Michigan Data Interface, ${SUITE_NAME}//${PIPELINE_NAME}=${VERSION}
+# avoid placing files into system-defined bind paths within the container,
+# they will likely be overridden in a running container
+#   https://sylabs.io/guides/latest/user-guide/bind_paths_and_mounts.html#system-defined-bind-paths
+#   https://sylabs.io/guides/latest/user-guide/definition_files.html?highlight=best%20practices#best-practices-for-build-recipes
+# instead, add files to a system path such as /opt, /usr, /srv etc.
