@@ -3,6 +3,7 @@
 # app name is shown at the top of the dashboard menu
 # description is used when needing to query the user for the desired target app
 # semantic version is of form v0.0.0: https://semver.org/
+# external modules will come from latest suite versions unless listed in suiteVersions
 #----------------------------------------------------------------------
 name: Example
 description: "Example of descriptive text"

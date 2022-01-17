@@ -69,5 +69,5 @@ make in your shared components. Doing so will help people who want to use
 shared components from your tool suite when building their own apps.
 
 All apps within a tool suite are expected to have been adjusted for 
-any changes made within the shared components. You may wish to advance
+any changes made within its shared components. You should advance
 the version of your apps to reflect this change, most likely as a patch.
