@@ -159,7 +159,7 @@ pipeline:
 Such tool versions are _not_ placed into git version tags unless prefixed with the
 name of the tool, e.g., 'myPipeline-v0.0.0', but this is usually not necessary. All git tags of format 'v0.0.0' are assumed to be tool suite versions. Thus, to communicate
 the version of a tool it is best to simply provide the version of the tool suite that
-carries it, which always has a one-to-one mapping to a tool version.
+carries it, which always has an unambiguous mapping to a tool version.
 
 Tool versions are also optional except for pipelines that
 offer Singularity containers, which are tagged with the major and minor

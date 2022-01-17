@@ -59,3 +59,15 @@ Specifically:
 be created within app folders also, to only be loaded with that specific 
 app. However, whenever possible, it is desirable to abstract modules
 and types to be reusable in other apps.
+
+## Share code versioning
+
+Code components in the shared folder are, by definition, scoped to the
+suite of tools, so the relevant versioning is to create appropriate release 
+tags for the tool suite repository that reflect the kinds of code changes you 
+make in your shared components. Doing so will help people who want to use 
+shared components from your tool suite when building their own apps.
+
+All apps within a tool suite are expected to have been adjusted for 
+any changes made within the shared components. You may wish to advance
+the version of your apps to reflect this change, most likely as a patch.

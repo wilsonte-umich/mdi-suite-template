@@ -21,8 +21,19 @@ with config.yml and server.R whenever the app loads:
 
 See other help pages for more on the nature of scripts in those folders.
 
-### Quick start
+## Quick start
 
 The easiest way to get going is to copy and modify the '_template'
 app, which provides a working boilerplate for all required code.
 Read the comments and go!
+
+## App versioning
+
+Individual app versioning is optional but recommended as it will
+be displayed in the web page UI and will help users to easily
+access legacy versions of your code to analyze their data according
+to some previous standard, e.g., to ensure consistency between older
+and newer data sets.
+
+Declaring app version is simple: simply 
+
