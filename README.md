@@ -19,6 +19,12 @@ create a new **MDI tools suite**. Follow the instructions
 below to copy this repository, then fill your copy with code to define 
 a suite of your own data analysis pipelines and/or apps.
 
+The steps below were performed and provided as a separate working 
+tool suite repository you can use to validate your MDI installation 
+with a simple demo pipeline and app.
+
+- <https://github.com/MiDataInt/demo-mdi-tools.git>
+
 ## Template usage
 
 ### Create a new repository from this template
