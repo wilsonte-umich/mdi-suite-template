@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------
 name: Example
 description: "Example of descriptive text"
-version: v0.0.0
+# version: v0.0.0 # OPTIONAL
 # suiteVersions:
 #     suiteName: v0.0.0
 

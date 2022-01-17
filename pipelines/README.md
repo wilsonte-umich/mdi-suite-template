@@ -231,7 +231,7 @@ execute:
 
 The 'suiteName' and 'version' components of the pipeline declaration are optional, however, including suiteName can improve clarity and ensure that
 you are always using the tool you intend. If provided, the version designation should be either:
-- a release tag of the form 'v0.0.0'
+- a suite release tag of the form 'v0.0.0'
 - 'latest', to use the most recent release tag [the default]
 - 'pre-release', to use the development code at the tip of the main branch
 - for developers, the name of a code branch in the git repository
@@ -255,3 +255,45 @@ Many pipelines are designed to have staged execution with success monitoring. Co
 'status' and 'rollback' provide support for monitoring and manipulating pipeline
 execution status, repeating steps, etc. Pipelines that fail part-way through can be 
 re-launched from the failure point by re-calling the initial action.
+
+## Stage 1 versioning
+
+### Pipeline versions
+
+Individual pipeline versioning is optional but recommended as it will
+help users to confidently access legacy versions of your code to analyze 
+their data according to some previous standard, e.g., to ensure consistency 
+between older and newer data sets.
+
+Declaring pipeline versions is simple: just add a proper semantic version
+declaration to pipeline.yml and update it prior to committing new code. 
+It is not necessary to create Git tags for pipeline versions.
+
+```yml
+# pipelines/<pipeline>/pipeline.yml
+pipeline:
+    name: myPipeline
+    description: "Description of myPipeline"
+    version: v0.0.0
+```
+
+### Required versions of tools suite dependencies
+
+If your pipeline uses code modules from external tool suites, you may
+wish to specify the required versions of those external suites.
+This is useful if you don't wish to adjust your pipeline to account for a
+breaking change made in an external tool suite.  Declare such version
+requirements as follows, replacing 'suiteName' with the name of the
+external tool suite.
+
+```yml
+# pipelines/<pipeline>/pipeline.yml
+suiteVersions:
+    suiteName: v0.0.0
+```
+
+If you do not provide a version for an external tool suite,
+the latest version of that suite will be used.
+
+If you only use pipeline code from within your own tool suite, the 
+suiteVersions dictionary can be omitted from pipeline.yml.
