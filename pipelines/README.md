@@ -216,7 +216,7 @@ In general, the syntax is:
 ```yml
 # <data>.yml
 ---
-pipeline: [suiteName/]pipelineName[=version]
+pipeline: [suiteName/]pipelineName[:suiteVersion]
 variables:
     VAR_NAME: value
 pipelineAction:
