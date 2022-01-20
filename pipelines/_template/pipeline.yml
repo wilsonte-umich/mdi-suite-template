@@ -107,16 +107,20 @@ optionFamilies:
 #--------------------------------------------------------------------
 package:
     uploadType: _template # a signal to the Stage 2 framework regarding the package contents
-    packageAction: do # the pipeline action after which the Portal package should assembled
+    packageAction: do     # the pipeline action after which the data package should assembled
     files:
-        directoryContents:
-            type: file-list
+        directoryContents:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
+            type: file-list # additional information as to the file type
             file: $DATA_FILE_PREFIX.directoryContents.txt
         dataFrame:
             type: sample-value-matrix
             header: true
             separator: comma
             file: $DATA_FILE_PREFIX.mtcars.csv
+        # manifestFile: # a sample manifest
+        #     type: manifest-file
+        #     manifestType: xxxx
+        #     file: $XXXX.xxxx
 
 #--------------------------------------------------------------------
 # OPTIONAL: enable version-controlled Singularity containers for this pipeline
