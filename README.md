@@ -14,7 +14,7 @@ more information.
 
 ## Repository contents
 
-This repository is a **repository template** you can use to easily
+This repository is a **repository template** you can use to
 create a new **MDI tools suite**. Follow the instructions
 below to copy this repository, then fill your copy with code to define 
 a suite of your own data analysis pipelines and/or apps.
@@ -41,7 +41,7 @@ e.g., 'johndoelab'.
 
 The easiest way to start a new tool is to copy and modify the '_template' 
 pipeline or app, which provides a working boilerplate for all required code. 
-Copy, paste, change the folder name, and start coding.
+Copy/paste, change the folder name, and start coding.
 
 ## Folder structure
 
@@ -70,14 +70,29 @@ will take precedence over the framework as they are loaded last when an app is l
 
 ## Suite usage and sharing
 
-Tool suites are installed for use by the MDI installation and/or manager utilities found here:
+All tool suites can be used in either of two patterns we refer to as **suite-centric** and
+**mdi-centric**, depending on whether the tool suite or the MDI is the first installation target.
+Both patterns ultimately use both the MDI and one or more tool suites.
 
-- <https://github.com/MiDataInt/mdi>
-- <https://github.com/MiDataInt/mdi-manager>
+### Suite-centric installation
 
-Once you have installed the MDI frameworks and created one or more tools, you must make your 
-tool suite known to your MDI installation.
-Do this by editing file 'mdi/config/suites.yml' as follows:
+In a suite-centric installation, the user clones and installs a single tool suite (e.g., this one!).
+The 'install.sh' script provided in the suite template then clones the MDI and configures
+the installation for use. A renamable 'run' script, also provided in the template, executes 
+pipelines and launches a web server specific to the tool suite.
+
+In this way, developers and users can think of the tool suite as the primary unit of 
+installation and use.
+
+### MDI-centric installation
+
+In an mdi-centric installation, the user instead first clones the MDI installation utility:
+
+- <https://github.com/MiDataInt/mdi> 
+
+and executes the 'install.sh' script it provides to set up an empty MDI installation. 
+You must then make one or more tool suites known to the MDI installation by editing file 
+'mdi/config/suites.yml' as follows:
 
 ```yml
 # mdi/config/suites.yml
@@ -86,8 +101,7 @@ suites:
     - GIT_USER/NAME-mdi-tools # either format works
 ```
 
-and then repeating the MDI installation process, which will go much faster
-as now it only needs to add new components required by your pipelines and apps.
+and repeating the MDI installation.
 Alternatively, you can install new suites from within the Stage 2 web server, 
 or run the following from the command line:
 
@@ -95,6 +109,11 @@ or run the following from the command line:
 mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
 mdi add -p -s GIT_USER/NAME-mdi-tools # either format works
 ```
+
+In this way, users can maintain an extended MDI installation that carries potentially
+many unrelated tool suites in a one place, called from a single 'mdi' command target.
+
+### Public vs. private distributions
 
 If your repository is public (recommended), anyone will be able to perform the steps
 above to use your tools. 
@@ -113,6 +132,34 @@ gitCredentials <- list(
     GITHUB_PAT = "xxx"
 )
 ```
+
+## Suite- and pipeline-level Singularity containers
+
+Developers can help users speed their installation 
+process and enjoy the most controlled possible execution by supporting Singularity containers.
+You can choose to wrap your entire tool suite, or just individual pipelines, in 
+container images that you distribute in a registry, such as the GitHub Container Registry.
+
+- Singularity: <https://sylabs.io/guides/latest/user-guide/>
+- GitHub Container Registry: <https://docs.github.com/en/packages/>
+
+### Suite-level containers
+
+The simplest approach is to enable your entire tool suite for container support
+by editing files (please see commented sections within for more information):
+
+- _config.yml
+- singularity.def
+
+Advantages of this approach are that the resulting containers support both pipelines and apps 
+and requires less overall maintenance. Potential disadvantages are the 
+large size of the resulting container.
+
+### Pipeline-level containers
+
+Alternatively, and especially if your tool suite does not offer Stage 2 apps,
+you may prefer to place individual pipelines into their containers.
+See additional README.md documentation in the pipelines folder.
 
 ## Semantic versioning
 
@@ -229,10 +276,41 @@ examples here to get you going:
 
 <https://github.com/MiDataInt/mdi-documentation-template/tree/main/_docs>
 
-## Quick Start
+---
+## Quick Start 1: suite-centric installation
 
-> Please include these instructions at the top of every tool suite, 
-after **editing the suite name below** and **deleting this paragraph**.
+### Install this tool suite
+
+```bash
+git clone https://github.com/GIT_USER/NAME-mdi-tools.git
+cd NAME-mdi-tools
+./install.sh
+```
+
+### Execute a Stage 1 pipeline from the command line
+
+The installation process above added the 'run' utility
+to your suite installation folder. You can use it to access
+any pipeline. For help, simply call the utility with no arguments:
+
+```bash
+run
+```
+
+### Launch the MDI web server
+
+Launch the Stage 2 apps web server as follows:
+
+```bash
+run server --help
+run server
+```
+
+In a few seconds a web browser will open and you will be ready to 
+load your data and run an associated app.
+
+---
+## Quick Start 2: mdi-centric installation
 
 ### Install the MDI framework
 
@@ -247,8 +325,7 @@ cd mdi
 Please read the menu options and the 
 [MDI installer instructions](https://github.com/MiDataInt/mdi.git) to decide
 which installation option is best for you. Briefly, choose option 1
-if you will only run Stage 1 HPC pipelines, but not Stage 2 web tools,
-from your installation.
+if you will only run Stage 1 HPC pipelines from your installation.
 
 ### Add this tool suite to your MDI installation
 
@@ -261,7 +338,7 @@ suites:
     - GIT_USER/NAME-mdi-tools
 ```
 
-and then re-run <code>install.sh</code>, which will go much faster
+and re-run <code>install.sh</code>, which will go faster
 the second time. Alternatively, you can install this suite from within the 
 Stage 2 web server, or run the following from the command line:
 
@@ -269,24 +346,23 @@ Stage 2 web server, or run the following from the command line:
 mdi add -p -s GIT_USER/NAME-mdi-tools 
 ```
 
-### Run a Stage 1 pipeline from the command line
+### Execute a Stage 1 pipeline from the command line
 
 The installation process above added the 'mdi' utility
-to your MDI installation folder. You can use it to run
-any pipeline. For help from the command line, simply call
-the utility with no arguments:
+to your MDI installation folder. You can use it to access
+any pipeline. For help, simply call the utility with no arguments:
 
 ```bash
 mdi
 ```
 
-### Run the MDI web server
+### Launch the MDI web server
 
-If desired, run the Stage 2 apps web server as follows:
+Launch the Stage 2 apps web server as follows:
 
 ```bash
-mdi run --help
-mdi run
+mdi server --help
+mdi server
 ```
 
 In a few seconds a web browser will open and you will be ready to 
