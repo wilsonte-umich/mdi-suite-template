@@ -279,6 +279,11 @@ examples here to get you going:
 ---
 ## Quick Start 1: suite-centric installation
 
+In suite-centric mode, you will:
+- clone this tool suite repository
+- call its 'install.sh' script to create a suite-specific MDI installation
+- call its 'run' utility to use its tools
+
 ### Install this tool suite
 
 ```bash
@@ -289,32 +294,38 @@ cd NAME-mdi-tools
 
 ### Execute a Stage 1 pipeline from the command line
 
-The installation process above added the 'run' utility
-to your suite installation folder. You can use it to access
-any pipeline. For help, simply call the utility with no arguments:
+For help, call the 'run' utility with no arguments - 
+add the suite directory to PATH to run the tool suite from any directory.
 
 ```bash
-run
+./run
 ```
 
-### Launch the MDI web server
+### Launch the Stage 2 web server
 
-Launch the Stage 2 apps web server as follows:
+Launch the apps server as follows - in a few seconds a web browser 
+will open and you will be ready to load your data and run an associated app.
 
 ```bash
-run server --help
-run server
+./run server --help
+./run server
 ```
-
-In a few seconds a web browser will open and you will be ready to 
-load your data and run an associated app.
 
 ---
 ## Quick Start 2: mdi-centric installation
 
+In mdi-centric mode, you will:
+- clone and install the MDI
+- add this tool suite (and potentially others) to your configuration file
+- re-install the MDI to add this tool suite to your MDI installation
+- call the 'mdi' utility to use its tools
+
 ### Install the MDI framework
 
-First, use the MDI installer to install the code needed to run our tools.
+Please read the 'install.sh' menu options and the 
+[MDI installer instructions](https://github.com/MiDataInt/mdi.git) to decide
+which installation option is best for you. Briefly, choose option 1
+if you will only run Stage 1 HPC pipelines from your installation.
 
 ```bash
 git clone https://github.com/MiDataInt/mdi.git
@@ -322,15 +333,9 @@ cd mdi
 ./install.sh
 ```
 
-Please read the menu options and the 
-[MDI installer instructions](https://github.com/MiDataInt/mdi.git) to decide
-which installation option is best for you. Briefly, choose option 1
-if you will only run Stage 1 HPC pipelines from your installation.
-
 ### Add this tool suite to your MDI installation
 
-Next, make this tool suite known 
-to your MDI installation by editing file 'mdi/config/suites.yml' as follows:
+Edit file 'mdi/config/suites.yml' as follows:
 
 ```yml
 # mdi/config/suites.yml
@@ -348,22 +353,18 @@ mdi add -p -s GIT_USER/NAME-mdi-tools
 
 ### Execute a Stage 1 pipeline from the command line
 
-The installation process above added the 'mdi' utility
-to your MDI installation folder. You can use it to access
-any pipeline. For help, simply call the utility with no arguments:
+For help, call the 'mdi' utility with no arguments.
 
 ```bash
 mdi
 ```
 
-### Launch the MDI web server
+### Launch the Stage 2 web server
 
-Launch the Stage 2 apps web server as follows:
+Launch the apps server as follows - in a few seconds a web browser 
+will open and you will be ready to load your data and run an associated app.
 
 ```bash
 mdi server --help
 mdi server
 ```
-
-In a few seconds a web browser will open and you will be ready to 
-load your data and run an associated app.
