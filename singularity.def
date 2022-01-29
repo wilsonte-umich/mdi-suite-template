@@ -23,7 +23,7 @@ Stage: build
 # you may choose to install the entire R library yourself, or use mdi-singularity-base to speed the build
 # Bootstrap: docker
 # From: r-base:4.1.0
-# From: oras://ghcr.io/MiDataInt/mdi-singularity-base:4.1.0
+# From: oras://ghcr.io/MiDataInt/mdi-singularity-base:v4.1
 # Stage: build
 #------------------------------------------------------------------------------
 
