@@ -12,10 +12,10 @@ server instance, not in the AMI.
 
 ### Initialize parent instance
 
-Launch a new AWS EC2 instance from an appropriate Tier 2 bare bones AMI,
+Launch a new AWS EC2 instance from an appropriate Tier 2 empty AMI,
 with the following properties:
 
-- **instance type** = t3.medium
+- **instance type** = t3.xlarge
 - **storage** = 20 GB SSD
 
 ### Install this tool suite
@@ -33,7 +33,7 @@ server build
 server install
 ```
 
-### Download/install resources
+### Download/install resources (optional)
 
 ```bash
 cd /srv/mdi/resource-scripts

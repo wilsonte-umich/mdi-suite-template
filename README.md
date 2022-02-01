@@ -9,12 +9,10 @@ Data analysis in the MDI is separated into
 [two stages of code execution](https://midataint.github.io/docs/analysis-flow/) 
 called Stage 1 HPC **pipelines** and Stage 2 web applications (i.e., **apps**).
 Collectively, pipelines and apps are referred to as **tools**.
-Please read the [MDI documentation](https://midataint.github.io/) for 
-more information.
 
 ## Repository contents
 
-This repository is a **repository template** you can use to
+This is a **repository template** you can use to
 create a new **MDI tools suite**. Follow the instructions
 below to copy this repository, then fill your copy with code to define 
 a suite of your own data analysis pipelines and/or apps.
@@ -33,7 +31,7 @@ with a simple demo pipeline and app.
 [click here to create a new suite repository from this template](https://github.com/MiDataInt/mdi-suite-template/generate).
 
 You will be prompted for the user and name of the repository you would like 
-to create. We recommend that you use **NAME-mdi-tools** as the name of your 
+to create. We recommend **NAME-mdi-tools** as the name of your 
 repository, replacing 'NAME' with a specific, informative name of your choosing, 
 e.g., 'johndoelab'.
 
@@ -44,8 +42,6 @@ pipeline or app, which provides a working boilerplate for all required code.
 Copy/paste, change the folder name, and start coding.
 
 ## Folder structure
-
-The following guide shows where to put code files that define your pipelines and apps.
 
 | Folder          | Subfolder       | Description |  
 | --------------- | --------------- | ------------|  
@@ -60,7 +56,7 @@ The following guide shows where to put code files that define your pipelines and
 
 Thus, you should create one subfolder in 'pipelines' or 'apps' for each distinct
 tool in your suite. Those tools can draw on the common code elements that you 
-populate into 'shared' folders, as required. 
+populate into 'shared' folders. 
 We encourage the use of shared components, 
 which is one reason the MDI uses suite repositories carrying multiple related tools.
 
@@ -76,7 +72,7 @@ Both patterns ultimately use both the MDI and one or more tool suites.
 
 ### Suite-centric installation
 
-In a suite-centric installation, the user clones and installs a single tool suite (e.g., this one!).
+In a suite-centric installation, the user clones and installs a single tool suite.
 The 'install.sh' script provided in the suite template then clones the MDI and configures
 the installation for use. A renamable 'run' script, also provided in the template, executes 
 pipelines and launches a web server specific to the tool suite.
@@ -90,7 +86,7 @@ In an mdi-centric installation, the user instead first clones the MDI installati
 
 - <https://github.com/MiDataInt/mdi> 
 
-and executes the 'install.sh' script it provides to set up an empty MDI installation. 
+and executes its 'install.sh' script to set up an empty MDI installation. 
 You must then make one or more tool suites known to the MDI installation by editing file 
 'mdi/config/suites.yml' as follows:
 
@@ -110,8 +106,8 @@ mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
 mdi add -p -s GIT_USER/NAME-mdi-tools # either format works
 ```
 
-In this way, users can maintain an extended MDI installation that carries potentially
-many unrelated tool suites in a one place, called from a single 'mdi' command target.
+In this way, users can maintain an extended MDI installation that carries
+many tool suites in a one place, called from a single 'mdi' command target.
 
 ### Public vs. private distributions
 
@@ -135,8 +131,8 @@ gitCredentials <- list(
 
 ## Suite- and pipeline-level Singularity containers
 
-Developers can help users speed their installation 
-process and enjoy the most controlled possible execution by supporting Singularity containers.
+Developers can help users speed installation 
+and enjoy the most controlled possible execution by supporting Singularity containers.
 You can choose to wrap your entire tool suite, or just individual pipelines, in 
 container images that you distribute in a registry, such as the GitHub Container Registry.
 
@@ -158,7 +154,7 @@ large size of the resulting container.
 ### Pipeline-level containers
 
 Alternatively, and especially if your tool suite does not offer Stage 2 apps,
-you may prefer to place individual pipelines into their containers.
+you may prefer to place individual pipelines into their own containers.
 See additional README.md documentation in the pipelines folder.
 
 ## Semantic versioning
@@ -215,7 +211,7 @@ the version of a tool it is best to simply provide the version of the tool suite
 carries it, which always has an unambiguous mapping to a tool version.
 
 Tool versions are also optional except for pipelines that
-offer Singularity containers, which are tagged with the major and minor
+offer pipeline-level Singularity containers, which are tagged with the major and minor
 versions of the pipeline, e.g. 'myPipeline:v0.0'. Note that the patch version is _not_
 included in container labels, so it is critical that either the minor or major pipeline
 version be advanced whenever a new system or program dependency is introduced for a 

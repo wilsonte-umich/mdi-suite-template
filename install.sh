@@ -69,12 +69,22 @@ if [ "$PERMISSION" != "y" ]; then exit; fi
 #----------------------------------------------------------------------
 if [ -d $MDI_DIR ]; then
     cd $MDI_DIR
+    git checkout main
     git pull
 else 
     git clone https://github.com/MiDataInt/mdi.git
     cd $MDI_DIR
 fi
 $MDI_DIR/install.sh 1
+
+#----------------------------------------------------------------------
+# when installing into a container, copy over any existing base library
+#----------------------------------------------------------------------
+if [ -e $SUITE_DIR/mdi-tmp-library ]; then
+    rm -rf $MDI_DIR/library/*
+    mv $SUITE_DIR/mdi-tmp-library/* $MDI_DIR/library
+    rm -rf $SUITE_DIR/mdi-tmp-library
+fi
 
 #----------------------------------------------------------------------
 # programmatically write the suite-centric MDI installation's 'config/suites.yml' file
@@ -103,6 +113,9 @@ cat \
 
 #----------------------------------------------------------------------
 # re-run the mdi installation to add all required tool suites (including this one)
+# installer checks out frameworks to 'latest' and this suite to:
+#   latest, if called by user at command line
+#   SUITE_VERSION, if called during a container build
 #----------------------------------------------------------------------
 $MDI_DIR/install.sh 1
 
