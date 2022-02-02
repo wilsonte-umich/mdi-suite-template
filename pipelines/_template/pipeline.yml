@@ -81,6 +81,7 @@ optionFamilies:
                 default: null
                 directory:
                     must-exist: true
+                    bind-mount: true # options with 'directory' key are bind-mounted to containers by default
                 description: "the directory whose contents will be listed in the output"   
             option-1:
                 order: 2
