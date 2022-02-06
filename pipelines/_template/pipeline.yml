@@ -21,7 +21,7 @@ actions:
     # OPTIONAL: family lists in _global are prepended to every action
     # allows common options or creating one conda environment for all actions 
     _global:   
-        environment: demoEnv # environment name; if omitted, use automated, sharable name
+        environment: envName # environment name; if omitted, use automated, sharable name
         condaFamilies:
             - base-0.1  # includes snakemake
             - r-essentials-4.1           
