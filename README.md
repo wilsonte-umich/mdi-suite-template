@@ -329,6 +329,16 @@ cd mdi
 ./install.sh
 ```
 
+### Add an alias to .bashrc (optional)
+
+These commands will help you create a named alias to the 'mdi'
+target script in your new installation.
+
+```bash
+./mdi alias --help
+./mdi alias --alias mdi # change the alias name if you'd like 
+```
+
 ### Add this tool suite to your MDI installation
 
 Edit file 'mdi/config/suites.yml' as follows:
