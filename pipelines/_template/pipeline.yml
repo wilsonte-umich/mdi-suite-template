@@ -20,20 +20,22 @@ pipeline:
 actions: 
     # OPTIONAL: family lists in _global are prepended to every action
     # allows common options or creating one conda environment for all actions 
-    _global:      
-        optionFamilies:
-            - demo      # this is a private options module
+    _global:   
+        environment: demoEnv # environment name; if omitted, use automated, sharable name
         condaFamilies:
             - base-0.1  # includes snakemake
-            - r-essentials-4.1
+            - r-essentials-4.1           
+        optionFamilies:
+            - demo      # this is a private options module
     do:
         order: 1
         thread: do
-        # optionFamilies:
-        #     - demo
+        # environment: demo-do
         # condaFamilies:
         #     - base-0.1
-        #     - r-essentials-4.1
+        #     - r-essentials-4.1        
+        # optionFamilies:
+        #     - demo
         resources:
             required:
                 total-ram: 2G
@@ -47,11 +49,12 @@ actions:
     snakemake:
         order: 2
         thread: snakemake
-        optionFamilies:
-            - snakemake # this is a shared options module
+        # environment: demo-snakemake
         # condaFamilies:
         #     - base-0.1
-        #     - r-essentials-4.1
+        #     - r-essentials-4.1        
+        optionFamilies:
+            - snakemake # this is a shared options module
         resources:
             required:
                 total-ram: 4G
@@ -62,6 +65,11 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+
+#--------------------------------------------------------------------
+# OPTIONAL: pipeline-specific conda dependencies; overrides any shared environment configs
+#--------------------------------------------------------------------
+#condaFamilies:
 
 #--------------------------------------------------------------------
 # OPTIONAL: options available to action commands, organized into families for clarity
@@ -97,11 +105,6 @@ optionFamilies:
                 required: false
                 default: false
                 description: "this is an optional boolean (i.e, logical flag) option"
-
-#--------------------------------------------------------------------
-# OPTIONAL: pipeline-specific conda dependencies; overrides any shared environments
-#--------------------------------------------------------------------
-#condaFamilies:
     
 #--------------------------------------------------------------------
 # OPTIONAL: create an output package for loading into Stage2 App(s)
