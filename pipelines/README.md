@@ -1,3 +1,11 @@
+---
+title: "Stage 1 Pipelines"
+has_children: false
+nav_order: 1
+---
+
+{% include table-of-contents.md %}
+
 ## Stage 1 Pipelines overview
 
 ### Pipelines vs. programs

@@ -1,3 +1,11 @@
+---
+title: "Stage 2 Apps"
+has_children: false
+nav_order: 2
+---
+
+{% include table-of-contents.md %}
+
 ## Individual Shiny app folder contents
 
 Each apps folder has files that define a single app (i.e., one

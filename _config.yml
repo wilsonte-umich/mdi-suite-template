@@ -1,11 +1,11 @@
 # edit the following title and description to match your suite repository
-title: "Repository Title"
-description: "Provide a brief, one-line description of the nature and purpose of your tool suit"
+title: "Tool Suite Template"
+description: "Repository template to create a tools suite for the Michigan Data Interface"
 
 # edit the following for the upper-right navigation link on the documentation page
 aux_links:
   "Go To Repo on GitHub":
-    - "https://github.com/GIT_USER/REPOSITORY_NAME"
+    - "https://github.com/MiDataInt/mdi-suite-template"
 
 # OPTIONAL: uncomment to list any external tool suite dependencies
 # suite_dependencies:
