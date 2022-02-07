@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Utility functions
 
 Create as many helper scripts and functions in this folder as 

@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Pipeline name here
 
 Use this file the create a basic documentation page for the pipeline.

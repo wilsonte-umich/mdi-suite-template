@@ -1,6 +1,6 @@
 ---
 title: "Stage 2 Apps"
-has_children: false
+has_children: true
 nav_order: 2
 ---
 
