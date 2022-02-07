@@ -21,7 +21,7 @@ which you can use to launch your own suite of pipelines and apps.
 
 - <https://github.com/MiDataInt/mdi-suite-template>
 
-### Quick Start
+## Quick Start
 
 [**Click here**](https://github.com/MiDataInt/mdi-suite-template/generate) to create a new suite repository from this template.
 
