@@ -1,15 +1,17 @@
 ---
-published: false
+title: Shiny Modules
+parent: Stage 2 Apps
+has_children: true
+nav_order: 3
 ---
 
 ## Shiny Modules
 
-**modules** are R Shiny modules that define reusable UI components
-and associated server logic for app steps, widgets, etc.
-
-A module defines one discrete, reusable part of the UI that has both 
-UI elements and code logic. Please read about Shiny modules online 
-to understand how they work.
+**modules** are 
+[R Shiny modules](https://shiny.rstudio.com/articles/modules.html)
+that define reusable UI components for app steps, widgets, etc.
+A module folder carries scripts that define its UI elements and 
+associated server code logic.
 
 By convention, MDI module scripts follow the naming convention:
 
@@ -17,7 +19,7 @@ By convention, MDI module scripts follow the naming convention:
 - **module_server.R** - carries the function that defines the module's actions
 - **module_utilities.R** - additional support functions for the module
 
-Like any R functions, module server functions return a single
+Like any R function, module server functions return a single
 object that can be used by the calling code. Typical return values
 are a list of some combination of reactive objects and method functions 
 to be applied to the component or its data.
@@ -27,8 +29,7 @@ to be applied to the component or its data.
 Modules have different roles in MDI apps:
 
 - **appSteps** - define the sequential actions displayed
-on the leftmost dashboard tabs of the MDI web page. See the appSteps 
-README.md for details about their specific return value structure.
+on the leftmost dashboard tabs of the MDI web page. 
 
 - **widgets** - define UI elements, panels, plots, etc. that
 might be placed once or multiple times across any app.

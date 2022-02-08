@@ -1,8 +1,11 @@
 ---
-published: false
+title: Shared Files
+parent: Stage 2 Apps
+has_children: false
+nav_order: 2
 ---
 
-## Shiny shared modules/components folder organization
+## App shared files organization
 
 This **shiny/shared** folder has code components that may be 
 called by multiple analysis apps.
@@ -29,7 +32,7 @@ The **static** folder has fixed content for populating
 pages with text, mostly via markdown rendered in R with
 <code>includeMarkdown(file.path('static/xxx.md'))</code>.
 
-## Categories of recurring elements used to support apps
+## Recurring elements used to support apps
 
 Within the **global** and **session** folders:
 
@@ -64,7 +67,7 @@ be created within app folders also, to only be loaded with that specific
 app. However, whenever possible, it is desirable to abstract modules
 and types to be reusable in other apps.
 
-## Share code versioning
+## Shared code versioning
 
 Code components in the shared folder are, by definition, scoped to the
 suite of tools, so the relevant versioning is to create appropriate release 

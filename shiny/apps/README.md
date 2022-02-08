@@ -1,33 +1,34 @@
 ---
-title: Stage 2 Apps
-has_children: true
-nav_order: 2
+title: Individual Apps
+parent: Stage 2 Apps
+has_children: false
+nav_order: 1
 ---
 
 {% include table-of-contents.md %}
 
-## Individual Shiny app folder contents
+## Individual app folder contents
 
-Each apps folder has files that define a single app (i.e., one
-Shiny data analysis interface). The folder for an app carries 
-all scripts that define its specific behavior.
+Each folder in **.../shiny/apps** has files that define 
+the specific behavior of a single app (i.e., one
+Shiny data analysis interface). 
 
-At the root level of the app, these include:
+At the root level of the app, these files include:
 
 - **config.yml**  - names the app and describes its structure
 - **server.R**    - contains the function 'appServer'
 - **overview.md** - text used to describe the app on its splash page
 
 Optionally, you can organize additional app scripts into the
-following sub-folders, which will be loaded automatically along
-with config.yml and server.R whenever the app loads:
+following sub-folders, which will be loaded along
+with config.yml and server.R when the app loads:
 
 - modules
 - types
 - ui
 - utilities 
 
-See other help pages for more on the nature of scripts in those folders.
+See other pages for a description of files in those folders.
 
 ## Quick start
 
@@ -40,13 +41,13 @@ Read the comments and go!
 ### App versions
 
 Individual app versioning is optional but recommended as it will
-be displayed in the web page UI and will help users to easily
+be displayed in the web page UI and help users
 access legacy versions of your code to analyze their data according
-to some previous standard, e.g., to ensure consistency between older
-and newer data sets.
+to some previous standard, e.g., to ensure consistency between old
+and new data sets.
 
-Declaring app versions is simple: just add a proper semantic version
-declaration to config.yml and update it prior to committing new app code. 
+To track app versions, add a semantic version
+key to config.yml and update it prior to committing new app code. 
 It is not necessary to create Git tags for app versions.
 
 ```yml
@@ -56,9 +57,9 @@ description: "Example of descriptive text"
 version: v0.0.0
 ```
 
-### Required versions of tools suite dependencies
+### Required versions of tool suite dependencies
 
-If your app uses code modules from external tool suites, you may
+If your app uses code modules from other tool suites, you may
 wish to specify the required versions of those external suites.
 This is useful if you don't wish to adjust your app to account for a
 breaking change made in an external tool suite.  Declare such version
@@ -75,7 +76,7 @@ suiteVersions: # <<< add this section <<<
 ```
 
 If you do not provide a version for an external tool suite,
-the latest version of that suite will be used.
+the latest version will be used.
 
 If you only use app code from within your own tool suite, the 
-suiteVersions dictionary can be omitted from config.yml.
+suiteVersions dictionary can be omitted.

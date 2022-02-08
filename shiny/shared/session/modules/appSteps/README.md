@@ -1,8 +1,12 @@
 ---
-published: false
+title: App Step Modules
+parent: Shiny Modules
+grand_parent: Stage 2 Apps
+has_children: false
+nav_order: 1
 ---
 
-## Shiny Modules
+## App Step Modules
 
 **appSteps** modules share the properties of all MDI/Shiny modules
 but have a specific purpose of defining one sequential app
@@ -89,7 +93,7 @@ The list may contain any other objects or methods as needed, but they
 will not be included in bookmarks unless they are a subset of the 'outcomes' key
 and are reactive.
 
-#### Special case: first appStep modules in an app
+#### Special case: first app steps
 
 In addition to the requirements above for all appStep modules, any
 module used as the _first_ step of an app, i.e., replacing the 
