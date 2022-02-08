@@ -1,6 +1,7 @@
 ---
-title: "Manifest Types"
-parent: "Item Types"
+title: Manifest Types
+parent: Item Types
+grand_parent: Stage 2 Apps
 has_children: false
 nav_order: 1
 ---

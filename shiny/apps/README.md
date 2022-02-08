@@ -1,5 +1,5 @@
 ---
-title: "Stage 2 Apps"
+title: Stage 2 Apps
 has_children: true
 nav_order: 2
 ---
