@@ -8,8 +8,11 @@ nav_order: 1
 
 ## Manifest Types
 
-'manifestType' scripts declare expected manifest file metadata and handling 
-functions used by sourceFileUpload and potentially other modules.
+A **manifest** is a file provided by a Stage 1 pipeline or other data provider
+in a project zip that enumerates a related set of samples or other data content.
+Scripts in the **manifestTypes** folder:
+- declare expected metadata in a specific type of manifest file
+- provide handling functions used by sourceFileUpload and related modules
 
 All manifestTypes, e.g., 'manifestTypes$xyz', must be a **list** with members:
 
@@ -23,11 +26,11 @@ manifestTypes$xyz <- list(
 
 where:
 
-- **$patterns** - file suffixes for manifest files that match the manifestType
-- **$load** - a function to read the manifest file from disk
-- **$parse** - a function that takes the data frame from 'load' and returns a list of two data frames:
-    - **$manifest** - all input rows, potentially with modified column names/data types
-    - **$unique**   - one row per unique sample, often just a repeat of $manifest
+- **$patterns** = file suffixes for manifest files that match the manifestType
+- **$load** = a function to read the manifest file from disk
+- **$parse** = a function that takes the data frame from 'load' and returns a list of two data frames:
+    - **$manifest** = all input rows, potentially with modified column names/data types
+    - **$unique**   = one row per unique sample, often just a repeat of $manifest
 
 In addition to any desired sample value columns, the parsed manifest data frames must 
 ALWAYS have **Project**, **Sample_ID**, and **Description** columns - if necessary, create 
