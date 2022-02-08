@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Shared components
 
 MDI Stage 1 Pipelines suites support three types of reusable code 

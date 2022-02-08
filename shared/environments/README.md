@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Conda runtime environments
 
 **\<suite\>/shared/environments** carries Anaconda/Miniconda run-time environment

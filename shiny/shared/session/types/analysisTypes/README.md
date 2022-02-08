@@ -1,8 +1,8 @@
 ---
 title: Analysis Types
-parent: Stage 2 Apps
+parent: Item Types
 has_children: false
-nav_order: 1
+nav_order: 2
 ---
 
 ## Analysis Types

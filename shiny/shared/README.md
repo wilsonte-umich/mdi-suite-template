@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Shiny shared modules/components folder organization
 
 This **shiny/shared** folder has code components that may be 

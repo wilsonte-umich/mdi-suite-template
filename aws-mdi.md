@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Create a Tier 3 AMI for public MDI tool servers
 
 Follow these instructions to create a Tier 3 AMI to deliver

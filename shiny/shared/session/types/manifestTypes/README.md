@@ -1,3 +1,10 @@
+---
+title: Manifest Types
+parent: Item Types
+has_children: false
+nav_order: 1
+---
+
 ## Manifest Types
 
 'manifestType' scripts declare expected manifest file metadata and handling 

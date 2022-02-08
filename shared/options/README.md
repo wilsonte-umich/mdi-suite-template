@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## User options for configuring pipeline calls
 
 **\<suite\>/shared/options** defines typical sets of pipeline configuration

@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## Code modules
 
 **\<suite\>/shared/modules** defines chunks of execution code that are relevant 
