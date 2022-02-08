@@ -1,6 +1,6 @@
 ---
-title: Analysis Types
-parent: Item Types
+title: "Analysis Types"
+parent: "Item Types"
 has_children: false
 nav_order: 2
 ---

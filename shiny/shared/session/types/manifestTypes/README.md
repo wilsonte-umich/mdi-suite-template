@@ -1,6 +1,6 @@
 ---
-title: Manifest Types
-parent: Item Types
+title: "Manifest Types"
+parent: "Item Types"
 has_children: false
 nav_order: 1
 ---
