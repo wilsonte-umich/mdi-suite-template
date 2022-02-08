@@ -20,20 +20,22 @@ pipeline:
 actions: 
     # OPTIONAL: family lists in _global are prepended to every action
     # allows common options or creating one conda environment for all actions 
-    _global:      
-        optionFamilies:
-            - demo      # this is a private options module
+    _global:   
+        environment: envName # environment name; if omitted, use automated, sharable name
         condaFamilies:
             - base-0.1  # includes snakemake
-            - r-essentials-4.1
+            - r-essentials-4.1           
+        optionFamilies:
+            - demo      # this is a private options module
     do:
         order: 1
         thread: do
-        # optionFamilies:
-        #     - demo
+        # environment: demo-do
         # condaFamilies:
         #     - base-0.1
-        #     - r-essentials-4.1
+        #     - r-essentials-4.1        
+        # optionFamilies:
+        #     - demo
         resources:
             required:
                 total-ram: 2G
@@ -47,11 +49,12 @@ actions:
     snakemake:
         order: 2
         thread: snakemake
-        optionFamilies:
-            - snakemake # this is a shared options module
+        # environment: demo-snakemake
         # condaFamilies:
         #     - base-0.1
-        #     - r-essentials-4.1
+        #     - r-essentials-4.1        
+        optionFamilies:
+            - snakemake # this is a shared options module
         resources:
             required:
                 total-ram: 4G
@@ -62,6 +65,11 @@ actions:
             recommended:
                 time-limit: 1:00:00
         description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+
+#--------------------------------------------------------------------
+# OPTIONAL: pipeline-specific conda dependencies; overrides any shared environment configs
+#--------------------------------------------------------------------
+#condaFamilies:
 
 #--------------------------------------------------------------------
 # OPTIONAL: options available to action commands, organized into families for clarity
@@ -81,6 +89,7 @@ optionFamilies:
                 default: null
                 directory:
                     must-exist: true
+                    bind-mount: true # options with 'directory' key are bind-mounted to containers by default
                 description: "the directory whose contents will be listed in the output"   
             option-1:
                 order: 2
@@ -96,27 +105,26 @@ optionFamilies:
                 required: false
                 default: false
                 description: "this is an optional boolean (i.e, logical flag) option"
-
-#--------------------------------------------------------------------
-# OPTIONAL: pipeline-specific conda dependencies; overrides any shared environments
-#--------------------------------------------------------------------
-#condaFamilies:
     
 #--------------------------------------------------------------------
 # OPTIONAL: create an output package for loading into Stage2 App(s)
 #--------------------------------------------------------------------
 package:
     uploadType: _template # a signal to the Stage 2 framework regarding the package contents
-    packageAction: do # the pipeline action after which the Portal package should assembled
+    packageAction: do     # the pipeline action after which the data package should assembled
     files:
-        directoryContents:
-            type: file-list
+        directoryContents:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
+            type: file-list # additional information as to the file type
             file: $DATA_FILE_PREFIX.directoryContents.txt
         dataFrame:
             type: sample-value-matrix
             header: true
             separator: comma
             file: $DATA_FILE_PREFIX.mtcars.csv
+        # manifestFile: # a sample manifest
+        #     type: manifest-file
+        #     manifestType: xxxx
+        #     file: $XXXX.xxxx
 
 #--------------------------------------------------------------------
 # OPTIONAL: enable version-controlled Singularity containers for this pipeline

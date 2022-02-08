@@ -1,3 +1,10 @@
+---
+title: Analysis Types
+parent: Stage 2 Apps
+has_children: false
+nav_order: 1
+---
+
 ## Analysis Types
 
 Analysis types define a way of analyzing data that can be:

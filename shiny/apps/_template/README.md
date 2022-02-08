@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 ## App name here
 
 Use this file the create a basic documentation page for the app.
