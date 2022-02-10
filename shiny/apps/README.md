@@ -7,7 +7,7 @@ nav_order: 1
 
 {% include table-of-contents.md %}
 
-## Individual app files
+## App folders
 
 Each folder in **.../shiny/apps** has files that define 
 the behavior of a single app (i.e., one Shiny data analysis interface). 
@@ -55,7 +55,7 @@ description: "Example of descriptive text"
 version: v0.0.0
 ```
 
-### Required versions of suite dependencies
+### External suite versions
 
 If your app uses code modules from other tool suites, you may
 wish to specify the required versions of those external suites.

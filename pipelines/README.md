@@ -2,7 +2,7 @@
 title: "Stage 1 Pipelines"
 has_children: false
 nav_order: 1
-published: false
+published: true # set to false to remove this tab from your suite's doc site
 ---
 
 {% include table-of-contents.md %}

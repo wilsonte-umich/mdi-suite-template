@@ -5,7 +5,9 @@ has_children: true
 nav_order: 2
 ---
 
-## Shared app files
+{% include table-of-contents.md %}
+
+## Shared folder structure
 
 This **shiny/shared** folder has code components that may be 
 called by multiple analysis apps.

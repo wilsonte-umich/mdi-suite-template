@@ -6,14 +6,15 @@ has_children: false
 nav_order: 1
 ---
 
-## App Step Modules
+{% include table-of-contents.md %}
+
+## Overview
 
 **appSteps** share the properties of all MDI/Shiny modules
 but have a specific purpose of defining one sequential app
 step listed on the dashboard sidebar.
 
-In addition to descriptions below, please see the standard
-appStep modules for working examples.
+See the framework appStep modules for working examples.
 
 ## appStep UI function 
 
