@@ -15,7 +15,7 @@ define a specific way of analyzing data that can be:
 - executed as a synchronous or asynchronous job
 - potentially reused by many apps
 
-Here's how to set an analysis type's parameters and handling functions for
+Here's how to set an analysis type's parameters and handler functions for
 use by runAnalyses and related modules.
 
 All analysisTypes must provide, in folder **.../analysisTypes/\<typeGroup\>/\<analysisType\>**

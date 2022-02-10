@@ -5,11 +5,11 @@ has_children: true
 nav_order: 3
 ---
 
-## Shiny Modules
+## Shiny modules
 
 **modules** are 
 [R Shiny modules](https://shiny.rstudio.com/articles/modules.html)
-that define reusable UI components for app steps, widgets, etc.
+that define reusable UI components.
 A module folder carries scripts that define its UI elements and 
 associated server code logic.
 
@@ -21,24 +21,24 @@ By convention, MDI module scripts follow the naming convention:
 
 Like any R function, module server functions return a single
 object that can be used by the calling code. Typical return values
-are a list of some combination of reactive objects and method functions 
-to be applied to the component or its data.
+are a list of reactive objects and method functions to be applied to the  
+component or its data.
 
 ### Module types
 
 Modules have different roles in MDI apps:
 
-- **appSteps** - define the sequential actions displayed
-on the leftmost dashboard tabs of the MDI web page. 
+- **appSteps** - sequential actions comprising the leftmost dashboard 
+tabs of the MDI web page
 
-- **widgets** - define UI elements, panels, plots, etc. that
-might be placed once or multiple times across any app.
+- **widgets** - UI elements, panels, plots, etc. that
+might be placed once or many times by an app
 
 ### Module script templates
 
 The following code blocks show the structure of a module's UI and server scripts. 
-Replace "myModule" with the name of your module in the script
-and function names. See existing framework modules for extended examples.
+Replace "myModule" with the name of your module. 
+See existing framework modules for extended examples.
 
 Module UI functions must use the Shiny <code>ns()</code> function to wrap
 UI element names, which causes them to have properly nested and addressable
@@ -52,14 +52,14 @@ myModuleUI <- function(id, ...) {
     # initialize namespace
     ns <- NS(id) 
 
-    # add Shiny UI elements here
+    # add Shiny UI elements
     textInput(ns('inputName'))
     textOutput(ns('outputName'))
 }
 ```
 
 UI elements are then addressable in the module's 
-<code>input</code> object using simply the name provided in the UI function.
+<code>input</code> object using the name provided in the UI function.
 
 ```
 # module server function, in myModule_server.R
@@ -73,7 +73,7 @@ output$outputName <- renderText({
     input$inputName
 })
 
-# module return values go here (if none, use NULL instead of a list)
+# module return value go here (if none, use NULL instead of a list)
 list(
     myValue = reactiveVal(input$inputName),
     myMethod = function(...) {}
@@ -85,7 +85,9 @@ list(
 
 ### Using a module
 
-The following code blocks show how to use your module in calling scripts. Very often you will be nesting modules within modules - the examples show how to ensure that names are assembled and accessed correctly.
+The following code blocks show how to use your module in calling scripts. 
+It is common to nest modules within modules - the examples show how to 
+ensure that names are assembled and accessed correctly.
 
 ```
 # within any UI script, e.g., parentModule_ui.R
