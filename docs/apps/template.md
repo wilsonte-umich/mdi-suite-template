@@ -17,6 +17,6 @@ want to read and edit files:
 - config.yml
 - overview.md
 
-Edit file **shiny/apps/_template/README.md** (this file) to document your new app.
+Create file **docs/apps/APP_NAME.md** to document your new app.
 Suggested sections to include would be an overview of its purpose,
 prerequisites, etc. 
