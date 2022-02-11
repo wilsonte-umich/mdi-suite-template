@@ -19,7 +19,7 @@ for a specific R package in its **module.yml** or **config.yml** file
 (there is no harm in relisting a package already listed 
 elsewhere - it will only be installed once):
 
-```
+```yml
 packages: 
    R:  
     - xxx

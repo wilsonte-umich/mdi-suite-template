@@ -16,7 +16,7 @@ Scripts in the **manifestTypes** folder:
 
 All manifestTypes, e.g., 'manifestTypes$xyz', must be a **list** with members:
 
-```
+```r
 manifestTypes$xyz <- list(
     patterns = character(),
     load = function(file) ...,

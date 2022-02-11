@@ -9,7 +9,7 @@ to be present:
 To check whether a package is available in a
 conda environment, temporarily use these lines:
 
-```
+```bash
 # Workflow.sh
 Rscript -e 'library(foo); message("package foo OK\n")'
 exit 1
@@ -17,7 +17,7 @@ exit 1
 
 and run:
 
-```
+````bash
 mdi <pipeline> <action> <data.yml>
 ```
 

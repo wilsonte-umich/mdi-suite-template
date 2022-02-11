@@ -12,7 +12,8 @@ nav_order: 1
 Each folder in **.../shiny/apps** has files that define 
 the behavior of a single app (i.e., one Shiny data analysis interface). 
 
-At the root level of the app, these files include:
+At the root level of the app, these files include
+(see comments within for additional instructions):
 
 - **config.yml**  - names the app and describes its structure
 - **server.R**    - contains the function 'appServer'
