@@ -1,22 +1,20 @@
 ---
-published: false
+title: Template Pipeline
+parent: Stage 1 Pipelines
+has_children: false
+nav_order: 99
+published: true
 ---
 
-## Pipeline name here
+## Template pipeline
 
-Use this file the create a basic documentation page for the pipeline.
+Folder **pipelines/_template** has a working boilerplate for
+a basic Stage 1 pipeline. 
 
-Start with an overview of the pipeline purpose, expected inputs and
-outputs, etc.
+Copy it to begin work on a new pipeline. At a minimum, you will
+want to read and edit file 'pipeline.yml' and add code into
+an action subfolder.
 
-## Prerequisites
-
-Summarize anything that the user will be expected to have already done.
-An example might be running a different pipeline first to create
-a file needed as input to this pipeline.
-
-### Pipeline actions
-
-Summarize the actions commands, e.g. 'do' or others.
-
-etc.
+Edit file **pipelines/_template/README.md** (this file) to document your new pipeline.
+Suggested sections to include would be an overview of its purpose, actions,
+prerequisites, etc. 

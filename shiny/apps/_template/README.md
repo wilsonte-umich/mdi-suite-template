@@ -1,16 +1,22 @@
 ---
-published: false
+title: Template App
+parent: Stage 2 Apps
+has_children: false
+nav_order: 99
+published: true
 ---
 
-## App name here
+## Template app
 
-Use this file the create a basic documentation page for the app.
+Folder **shiny/apps/_template** has a working boilerplate for
+a basic Stage 2 app. 
 
-Start with an overview of the app purpose, expected inputs and
-outputs, etc.
+Copy it to begin work on a new app. At a minimum, you will
+want to read and edit files:
 
-## Prerequisites
+- config.yml
+- overview.md
 
-Summarize anything that the user will be expected to have already done.
-An example might be running a specific pipeline first to create
-the required input data package.
+Edit file **shiny/apps/_template/README.md** (this file) to document your new app.
+Suggested sections to include would be an overview of its purpose,
+prerequisites, etc. 
