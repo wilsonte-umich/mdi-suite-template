@@ -331,12 +331,14 @@ cd mdi
 
 ### Add an alias to .bashrc (optional)
 
-These commands will help you create a named alias to the 'mdi'
+These commands will help you create a permanent named alias to the 'mdi'
 target script in your new installation.
 
 ```bash
 ./mdi alias --help
 ./mdi alias --alias mdi # change the alias name if you'd like 
+`./mdi alias --alias mdi --get` # activate the alias in the current shell too
+mdi
 ```
 
 ### Add this tool suite to your MDI installation
