@@ -129,7 +129,7 @@ gitCredentials <- list(
 )
 ```
 
-## Suite- and pipeline-level Singularity containers
+## Singularity containers
 
 Developers can help users speed installation 
 and enjoy the most controlled possible execution by supporting Singularity containers.
@@ -278,6 +278,7 @@ examples here to get you going:
 In suite-centric mode, you will:
 - clone this tool suite repository
 - call its 'install.sh' script to create a suite-specific MDI installation
+- OPTIONAL: call 'alias.pl' to create an alias to the suite's 'run' utility
 - call its 'run' utility to use its tools
 
 ### Install this tool suite
@@ -288,13 +289,19 @@ cd NAME-mdi-tools
 ./install.sh
 ```
 
+### Create an alias to the suite's 'run' utility
+
+```bash
+perl alias.pl NAME # you can use a different alias name if you'd like
+```
+
 ### Execute a Stage 1 pipeline from the command line
 
-For help, call the 'run' utility with no arguments - 
-add the suite directory to PATH to run the tool suite from any directory.
+For help, call the 'run' utility with no arguments.
 
 ```bash
 ./run
+NAME # if you created an alias as described above
 ```
 
 ### Launch the Stage 2 web server
