@@ -1,3 +1,8 @@
+---
+NOTICE - this template has pending udates to make it fully consistent with recent updates to the MDI frameworks.  It can be used, but the MDI is still in beta testing and some things might require a bit more developer attention until the suite is brought up to date...
+---
+
+
 # Michigan Data Interface
 
 The [Michigan Data Interface](https://midataint.github.io/) (MDI) 
