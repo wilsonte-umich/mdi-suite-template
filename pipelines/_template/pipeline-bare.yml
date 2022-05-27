@@ -1,26 +1,27 @@
 ---
-# this bare-bones pipeline.yml template is for experienced users
 pipeline:
-    name: pipelineName
-    description: "description"
+    name: _template
+    description: "a working demo that serves as a template for new pipelines"
     # version: v0.0.1
 # suiteVersions:
-#     suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
+#     suiteName: v0.0.0
 actions: 
-    _global:
-        environment: envName
+    _global:   
+        environment: mdi-demo
         condaFamilies:
-            - base-0.1
-            - xxxx       
+            - base
+            - r-4.1         
         optionFamilies:
-            - xxxx
+            - demo
     do:
         order: 1
         thread: do
-        condaFamilies:
-            - xxxx-1.0        
-        optionFamilies:
-            - xxxx
+        # environment: demo-do
+        # condaFamilies:
+        #     - base
+        #     - r-4.1      
+        # optionFamilies:
+        #     - demo
         resources:
             required:
                 total-ram: 2G
@@ -30,36 +31,76 @@ actions:
         job-manager:
             recommended:
                 time-limit: 1:00:00
-        description: "description"      
-condaFamilies:
-    xxxx:
-        dependencies:
-            - xxxx=1.2.3        
+        description: "list files in a directory, make a plot, print a table, and sleep for 15 seconds"      
+    snakemake:
+        order: 2
+        thread: snakemake
+        # environment: demo-snakemake
+        # condaFamilies:
+        #     - base
+        #     - r-4.1        
+        optionFamilies:
+            - snakemake
+        resources:
+            required:
+                total-ram: 4G
+            recommended: 
+                n-cpu: 2
+                ram-per-cpu: 2G
+        job-manager:
+            recommended:
+                time-limit: 1:00:00
+        description: "does the same thing as 'do', but uses snakemake in Workflow.sh"
+#condaFamilies:
 optionFamilies:     
-    xxxx:
+    demo:
         options:
-            xxxx-xxxx: 
+            input-dir: 
                 order: 1
-                short: x
+                short: i
                 type: string
                 required: true
                 default: null
                 directory:
                     must-exist: true
-                description: "description"   
+                    bind-mount: true # options with 'directory' key are bind-mounted to containers by default
+                description: "the directory whose contents will be listed in the output"   
+            option-1:
+                order: 2
+                short: a
+                type: integer
+                required: false
+                default: 99
+                description: "this is an optional integer configuration option"
+            option-2: 
+                order: 3
+                short: b
+                type: boolean
+                required: false
+                default: false
+                description: "this is an optional boolean (i.e, logical flag) option"
 package:
-    uploadType: xxxx  # a signal to the Stage 2 framework regarding the package contents
-    packageAction: do # the pipeline action after which the package should assembled
-    files:
-        xxxx: # a contentFileType of any name you choose; 'manifestFile' has special meaning
-            type: xxxx # additional information as to the file type
-            file: $DATA_FILE_PREFIX.xxxx
-        manifestFile: # a sample manifest
-            type: manifest-file
-            manifestType: xxxx
-            file: $XXXX.xxxx
+    do: # the pipeline action after which a data package should assembled
+        uploadType: _template # a signal to the Stage 2 framework regarding the package contents
+        files:
+            directoryContents:
+                type: file-list
+                file: $DATA_FILE_PREFIX.directoryContents.txt
+            dataFrame:
+                type: sample-value-matrix
+                header: true
+                separator: comma
+                file: $DATA_FILE_PREFIX.mtcars.csv
+            # manifestFile: # a sample manifest
+            #     type: comma-delimited
+            #     manifestType: simple
+            #     file: $XXXX.xxxx        
+    # snakemake: 
+    #     uploadType: _template
+    #     extends: do # the new package will add files to the package from a previous step
+    #     files:
 container:
-    supported: false    
+    supported: false
     registry:  ghcr.io  # domain name of your OCI-compatible, oras-accessible, container registry [ghcr.io]
-    owner:     xxxxxxxx # REQUIRED: the name of the owner, e.g., user or organization, at 'registry'
+    owner:     xxxxxxxx # the name of the owner, e.g., user or organization, at 'registry'
     installer: apt-get  # the installer program used by the container OS, typically apt-get or yum [apt-get]

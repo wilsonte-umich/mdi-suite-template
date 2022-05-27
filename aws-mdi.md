@@ -37,7 +37,7 @@ server build
 server install
 ```
 
-### Download/install resources (optional)
+### OPTIONAL: Download/install resources
 
 ```bash
 cd /srv/mdi/resource-scripts

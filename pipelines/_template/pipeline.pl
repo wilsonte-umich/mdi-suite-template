@@ -2,10 +2,8 @@
 use strict;
 use warnings;
 
-# use pipeline.pl to set environment variables that are:
-#   - derived from user options
-#   - shared across multiple actions
-# and/or to check the validity of existing environment variables as needed
+# use pipeline.pl to set shared environment variables or do
+# any other preparative work/validation checks at job submission
 
 # this script can be empty or deleted entirely if not needed
 

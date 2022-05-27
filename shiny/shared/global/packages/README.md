@@ -29,9 +29,11 @@ packages:
 
 ## Installing vs. attaching
 
-Packages declared in a tool suite are _installed_ but are never _attached_ using the <code>library()</code> function. Thus, you must either:
+Packages declared in a tool suite are _installed_ but are never _attached_ 
+using the <code>library()</code> function. Thus, you must either:
 
 - call functions in full syntax, e.g., <code>package::function()</code> (**preferred**)
 - call <code>library(package)</code> yourself (**discouraged**, you could break the framework)
 
-In contrast, packages listed in the 'mdi-apps-framework' repository are attached and their functions can be called directly, e.g., Shiny's <code>observeEvent()</code>.
+In contrast, packages listed in the 'mdi-apps-framework' repository are attached and 
+their functions can be called directly, e.g., Shiny's <code>observeEvent()</code>.

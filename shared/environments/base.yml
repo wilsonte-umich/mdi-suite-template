@@ -1,5 +1,4 @@
 ---
-
 # Declares conda channels and configures the basic runtime environment and shell.
 # Many pipelines load 'base' first, followed by:
 #     - program families specified by shared conda environments
@@ -11,9 +10,4 @@ channels:
     - defaults
 
 dependencies:
-    
-    # workflow management
-    - snakemake=6.10.0
-    
-    # parallelization tools
-    - pigz=2.6
+    - pigz=2.6 # parallel handling of gzip files

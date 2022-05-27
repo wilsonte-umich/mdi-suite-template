@@ -21,7 +21,7 @@ sub fillEnvVar {
     my ($var, $varName, $allowNull, $default) = @_;
     my $val = $ENV{$varName};
     $val and $val eq 'null' and $val = undef;
-    defined $val or $allowNull or die getActionName()." error: missing environment variable: $varName\n";
+    defined $val or $allowNull or throwError("missing environment variable: $varName");
     !defined $val and defined $default and $val = $default;
     $$var = $val;
 }
@@ -107,6 +107,18 @@ sub runChildThreads_array {      # initialize children in parent
         }
         $pids{$pid} = $childI;        
     }
+}
+
+#----------------------------------------------------------
+# file slurping
+#----------------------------------------------------------
+sub slurpFile {  # read the entire contents of a disk file into memory
+    my ($file) = @_;
+    local $/ = undef; 
+    open my $inH, "<", $file or die "could not open $file for reading: $!\n";
+    my $contents = <$inH>; 
+    close $inH;
+    return $contents;
 }
 
 1;

@@ -5,7 +5,7 @@
 #   input, output, session objects
 #   values returned from all app step modules
 #----------------------------------------------------------------------
-# if not needed, simply omit file server.R from your app
+# if not needed, you may omit file server.R from your app
 #----------------------------------------------------------------------
 
 # objects instantiated here are available to all appStep modules in a session

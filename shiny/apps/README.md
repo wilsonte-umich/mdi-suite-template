@@ -15,9 +15,9 @@ the behavior of a single app (i.e., one Shiny data analysis interface).
 At the root level of the app, these files include
 (see comments within for additional instructions):
 
-- **config.yml**  - names the app and describes its structure
-- **server.R**    - contains the function 'appServer'
-- **overview.md** - text used to describe the app on its splash page
+- **config.yml**  = names the app and describes its structure
+- **server.R**    = contains the function 'appServer'
+- **overview.md** = text used to describe the app on its splash page
 
 The name of the app's folder must match the name provided in config.yml.
 

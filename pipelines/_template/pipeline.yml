@@ -21,10 +21,10 @@ actions:
     # OPTIONAL: family lists in _global are prepended to every action
     # allows common options or creating one conda environment for all actions 
     _global:   
-        environment: envName # environment name; if omitted, use automated, sharable name
+        environment: mdi-demo # environment name; if omitted, uses an automated, sharable name
         condaFamilies:
-            - base-0.1  # includes snakemake
-            - r-essentials-4.1           
+            - base
+            - r-4.1         
         optionFamilies:
             - demo      # this is a private options module
     do:
@@ -32,8 +32,8 @@ actions:
         thread: do
         # environment: demo-do
         # condaFamilies:
-        #     - base-0.1
-        #     - r-essentials-4.1        
+        #     - base
+        #     - r-4.1      
         # optionFamilies:
         #     - demo
         resources:
@@ -50,10 +50,12 @@ actions:
         order: 2
         thread: snakemake
         # environment: demo-snakemake
-        # condaFamilies:
-        #     - base-0.1
-        #     - r-essentials-4.1        
+        condaFamilies:
+        #     - base
+        #     - r-4.1     
+            - snakemake
         optionFamilies:
+        #     - demo
             - snakemake # this is a shared options module
         resources:
             required:
@@ -110,21 +112,25 @@ optionFamilies:
 # OPTIONAL: create an output package for loading into Stage2 App(s)
 #--------------------------------------------------------------------
 package:
-    uploadType: _template # a signal to the Stage 2 framework regarding the package contents
-    packageAction: do     # the pipeline action after which the data package should assembled
-    files:
-        directoryContents:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
-            type: file-list # additional information as to the file type
-            file: $DATA_FILE_PREFIX.directoryContents.txt
-        dataFrame:
-            type: sample-value-matrix
-            header: true
-            separator: comma
-            file: $DATA_FILE_PREFIX.mtcars.csv
-        # manifestFile: # a sample manifest
-        #     type: manifest-file
-        #     manifestType: xxxx
-        #     file: $XXXX.xxxx
+    do: # the pipeline action after which a data package should assembled
+        uploadType: _template # a signal to the Stage 2 framework regarding the package contents
+        files:
+            directoryContents:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
+                type: file-list # additional information as to the file type
+                file: $DATA_FILE_PREFIX.directoryContents.txt
+            dataFrame:
+                type: sample-value-matrix
+                header: true
+                separator: comma
+                file: $DATA_FILE_PREFIX.mtcars.csv
+            # manifestFile: # a sample manifest
+            #     type: comma-delimited
+            #     manifestType: simple
+            #     file: $XXXX.xxxx        
+    # snakemake: 
+    #     uploadType: _template
+    #     extends: do # the new package will add files to the package from a previous step
+    #     files: # continue as above
 
 #--------------------------------------------------------------------
 # OPTIONAL: enable version-controlled Singularity containers for this pipeline

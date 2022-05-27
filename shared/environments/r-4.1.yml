@@ -1,5 +1,5 @@
 ---
-# current R program versions as of November 2021
+# current R program versions as of March 2022
 
 # The packages contained in 'r-essentials' are not well documented.  
 # The following are known to be present:
@@ -10,10 +10,11 @@
 # activate it and run:
 #   Rscript -e 'library(foo); message("package foo OK\n")'
 
-# If the package is OK, add it to the list above. If
+# If the package is OK, add it to the documentation list above. If
 # you get an error that R can't find the package, you
-# need to add it to your conda dependencies.
+# need to add it to your pipeline's conda dependencies.
 
 dependencies:
-    - r-base=4.1.1
+    - r-base=4.1.2
     - r-essentials=4.1
+    - r-r.utils=2.11.0

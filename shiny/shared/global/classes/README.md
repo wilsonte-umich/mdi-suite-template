@@ -13,9 +13,9 @@ components of Stage 2 apps, as R S3 classes.
 
 By convention, a class is defined by scripts named:
     
-- **myClass_constructor.R** - for object instantiation
-- **myClass_methods.R** - where generic S3 methods are found
-- **myClass_utilities.R** - functions called by the above scripts
+- **myClass_constructor.R** = for object instantiation
+- **myClass_methods.R** = where generic S3 methods are found
+- **myClass_utilities.R** = functions called by the above scripts
 
 Constructor functions follow suggested R best practices in being
 called 'new_myClass' by convention. Note the case pattern.

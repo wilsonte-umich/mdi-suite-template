@@ -17,9 +17,9 @@ associated server code logic.
 
 By convention, MDI module scripts follow the naming convention:
 
-- **module_ui.R** - carries the function that returns the module's UI elements
-- **module_server.R** - carries the function that defines the module's actions
-- **module_utilities.R** - additional support functions for the module
+- **module_ui.R** = carries the function that returns the module's UI elements
+- **module_server.R** = carries the function that defines the module's actions
+- **module_utilities.R** = additional support functions for the module
 
 Like any R function, module server functions return a single
 object that can be used by the calling code. Typical return values

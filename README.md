@@ -1,19 +1,14 @@
----
-NOTICE - this template has pending udates to make it fully consistent with recent updates to the MDI frameworks.  It can be used, but the MDI is still in beta testing and some things might require a bit more developer attention until the suite is brought up to date...
----
-
-
 # Michigan Data Interface
 
 The [Michigan Data Interface](https://midataint.github.io/) (MDI) 
-is a framework for developing, installing and running a variety of 
-HPC data analysis pipelines and interactive R Shiny data visualization 
-applications within a standardized design and implementation interface.
+is a framework for developing, installing and running 
+HPC data analysis pipelines and interactive visualization 
+applications within a standardized design interface.
 
-Data analysis in the MDI is separated into 
+The MDI is separated into 
 [two stages of code execution](https://midataint.github.io/docs/analysis-flow/) 
 called Stage 1 HPC **pipelines** and Stage 2 web applications (i.e., **apps**).
-Collectively, pipelines and apps are referred to as **tools**.
+Collectively, pipelines and apps are known as **tools**.
 
 ## Repository contents
 
@@ -36,9 +31,8 @@ with a simple demo pipeline and app.
 [click here to create a new suite repository from this template](https://github.com/MiDataInt/mdi-suite-template/generate).
 
 You will be prompted for the user and name of the repository you would like 
-to create. We recommend **NAME-mdi-tools** as the name of your 
-repository, replacing 'NAME' with a specific, informative name of your choosing, 
-e.g., 'johndoelab'.
+to create. We recommend **NAME-mdi-tools**, replacing 'NAME' with a specific, 
+informative name of your choosing, e.g., 'johndoelab'.
 
 ### Copy and use the _template pipeline or app
 
@@ -59,9 +53,9 @@ Copy/paste, change the folder name, and start coding.
 | \|--------      | **apps**        | subfolders carry scripts that define individual apps | 
 | \|--------      | **shared**      | subfolders carry scripts with code shared by potentially many apps | 
 
-Thus, you should create one subfolder in 'pipelines' or 'apps' for each distinct
+Thus, you should create one subfolder in 'pipelines' or 'shiny/apps' for each distinct
 tool in your suite. Those tools can draw on the common code elements that you 
-populate into 'shared' folders. 
+populate into the 'shared' folders. 
 We encourage the use of shared components, 
 which is one reason the MDI uses suite repositories carrying multiple related tools.
 
@@ -78,7 +72,7 @@ Both patterns ultimately use both the MDI and one or more tool suites.
 ### Suite-centric installation
 
 In a suite-centric installation, the user clones and installs a single tool suite.
-The 'install.sh' script provided in the suite template then clones the MDI and configures
+The 'install.sh' script provided in the suite template clones the MDI and configures
 the installation for use. A renamable 'run' script, also provided in the template, executes 
 pipelines and launches a web server specific to the tool suite.
 
@@ -98,8 +92,8 @@ You must then make one or more tool suites known to the MDI installation by edit
 ```yml
 # mdi/config/suites.yml
 suites:
-    - https://github.com/GIT_USER/NAME-mdi-tools.git
     - GIT_USER/NAME-mdi-tools # either format works
+    - https://github.com/GIT_USER/NAME-mdi-tools.git
 ```
 
 and repeating the MDI installation.
@@ -107,8 +101,8 @@ Alternatively, you can install new suites from within the Stage 2 web server,
 or run the following from the command line:
 
 ```bash
-mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
 mdi add -p -s GIT_USER/NAME-mdi-tools # either format works
+mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
 ```
 
 In this way, users can maintain an extended MDI installation that carries
@@ -136,8 +130,8 @@ gitCredentials <- list(
 
 ## Singularity containers
 
-Developers can help users speed installation 
-and enjoy the most controlled possible execution by supporting Singularity containers.
+Developers can help users speed installation and enjoy the most controlled possible 
+pipeline execution by supporting Singularity containers.
 You can choose to wrap your entire tool suite, or just individual pipelines, in 
 container images that you distribute in a registry, such as the GitHub Container Registry.
 
@@ -152,14 +146,12 @@ by editing files (please see commented sections within for more information):
 - _config.yml
 - singularity.def
 
-Advantages of this approach are that the resulting containers support both pipelines and apps 
-and requires less overall maintenance. Potential disadvantages are the 
-large size of the resulting container.
+The advantage of this approach is simplicity. 
+A potential disadvantages is the large size of the resulting container.
 
 ### Pipeline-level containers
 
-Alternatively, and especially if your tool suite does not offer Stage 2 apps,
-you may prefer to place individual pipelines into their own containers.
+Alternatively, you may prefer to place individual pipelines into their own containers.
 See additional README.md documentation in the pipelines folder.
 
 ## Semantic versioning
@@ -185,7 +177,7 @@ for your tool suite, but follow these guidelines:
 would prevent job files written for previous versions from working with the current version
 
 Please note that such Git version/release tags apply to the entire tool suite,
-not to individual pipelines or apps, which is discussed next. Thus, you 
+not to individual pipelines or apps. Thus, you 
 should advance the tool suite version whenever a matching code change
 occurs in any of the tools carried in the suite repository. 
 
@@ -210,7 +202,7 @@ pipeline:
     version: v0.0.0
 ```
 
-Such tool versions are _not_ placed into git version tags unless prefixed with the
+Such tool versions should _not_ be placed into git version tags unless prefixed with the
 name of the tool, e.g., 'myPipeline-v0.0.0', but this is usually not necessary. All git tags of format 'v0.0.0' are assumed to be tool suite versions. Thus, to communicate
 the version of a tool it is best to simply provide the version of the tool suite that
 carries it, which always has an unambiguous mapping to a tool version.
@@ -220,14 +212,14 @@ offer pipeline-level Singularity containers, which are tagged with the major and
 versions of the pipeline, e.g. 'myPipeline:v0.0'. Note that the patch version is _not_
 included in container labels, so it is critical that either the minor or major pipeline
 version be advanced whenever a new system or program dependency is introduced for a 
-given pipeline on any of its actions. 
+given pipeline for any of its actions. 
 
 ## Suite documentation
 
 This template carries the configuration files needed to easily launch a documentation
 web site for your new tools suite repository using a permanent, customized fork 
 of the open source Jekyll theme 
-[Just the Docs](https://pmarsceill.github.io/just-the-docs/), called
+[Just the Docs](https://github.com/just-the-docs/just-the-docs), called
 [just-the-docs-mdi](https://github.com/MiDataInt/just-the-docs-mdi).
 
 ### Configure your suite's basic information
@@ -269,7 +261,7 @@ documentation web site.
 ### Just the Docs usage
 
 Please see the 
-[Just the Docs](https://pmarsceill.github.io/just-the-docs/) 
+[Just the Docs](https://just-the-docs/just-the-docs/) 
 documentation for guidance on how to use the Jekyll front matter
 at the top of each markdown file to create the nested 
 menu items typical of MDI documentation sites. You can see simple 
@@ -306,7 +298,7 @@ For help, call the 'run' utility with no arguments.
 
 ```bash
 ./run
-NAME # if you created an alias as described above
+NAME # if you created an alias above
 ```
 
 ### Launch the Stage 2 web server
@@ -349,7 +341,7 @@ target script in your new installation.
 ```bash
 ./mdi alias --help
 ./mdi alias --alias mdi # change the alias name if you'd like 
-`./mdi alias --alias mdi --get` # activate the alias in the current shell too
+`./mdi alias --alias mdi --get` # activate the alias in the current shell (or log back in)
 mdi
 ```
 
@@ -363,8 +355,8 @@ suites:
     - GIT_USER/NAME-mdi-tools
 ```
 
-and re-run <code>install.sh</code>, which will go faster
-the second time. Alternatively, you can install this suite from within the 
+and re-run <code>install.sh</code>. 
+Alternatively, you can install this suite from within the 
 Stage 2 web server, or run the following from the command line:
 
 ```bash
