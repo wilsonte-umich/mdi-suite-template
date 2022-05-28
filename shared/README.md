@@ -1,8 +1,8 @@
 ---
-title: Pipeline Shared Files
+title: "Pipeline Shared Files"
 parent: Stage 1 Pipelines
 has_children: true
-nav_order: 20
+nav_order: 30
 ---
 
 ## {{page.title}}

@@ -1,6 +1,6 @@
 ---
 title: Conda Environments
-parent: Pipeline Shared Files
+parent: "Pipeline Shared Files"
 has_children: false
 nav_order: 10
 ---
