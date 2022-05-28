@@ -37,7 +37,7 @@ which are useful for locating files and for other purposes:
 | **MODULES_DIR**       | $SUITE_DIR/shared/modules              | the directory that contains all shared code modules in suite $SUITE_NAME |
 | **LOGS_DIR**          | $TASK_ACTION_DIR/logs | where log files should be placed |
 | **LOG_FILE_PREFIX**   | $LOGS_DIR/$DATA_NAME  | prefix to use for log file names |
-| **TASK_LOG_FILE**     | $LOG_FILE_PREFIX.$PIPELINE_NAME.$PIPELINE_ACTION.task.log | the main log file for a running task; starts with job config YAML |
+| **TASK_LOG_FILE**     | $LOG_FILE_PREFIX.$PIPELINE_NAME. $PIPELINE_ACTION.task.log | the main log file for a running task; starts with job config YAML |
 | **RAM_PER_CPU_INT**   | int($RAM_PER_CPU)                     | e.g., 1M becomes 1000000 |
 | **TOTAL_RAM_INT**     | $RAM_PER_CPU_INT * $N_CPU             | RAM available to entire job, e.g., 1000000 * 4 = 4000000 |
 | **TOTAL_RAM**         | $TOTAL_RAM_INT (as string)            | e.g., 4000000 becomes 4M |

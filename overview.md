@@ -18,10 +18,10 @@ which you can use to create your own suite of Stage 1 Pipelines and Stage 2 Apps
 
 - <https://github.com/MiDataInt/mdi-suite-template>
 
-## Quick Start
+## Quick start
 
 [**Click here**](https://github.com/MiDataInt/mdi-suite-template/generate) 
-to create a new suite repository from this template.
+to create a new tool suite repository from the template.
 
 >We recommend **NAME-mdi-tools** as the name of your 
 repository, replacing 'NAME' with an informative name of your choosing, 
@@ -38,6 +38,9 @@ to find lines to edit to match your needs:
 Then copy and modify the '_template' pipeline or app, which provides a working 
 boilerplate for all required tool code. 
 
+The remainder of these documentation pages will walk you through
+the basic structure of pipeline and app assemblies and 
+provide a handy working reference as you write code.
 
 <!-- please do not alter the next line -->
 {% include mdi-project-documentation.md %}

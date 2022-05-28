@@ -2,7 +2,7 @@
 title: Template App
 parent: Stage 2 Apps
 has_children: false
-nav_order: 99
+nav_order: 999
 published: true
 ---
 
