@@ -1,6 +1,7 @@
 ---
 title: Code Modules
-parent: "Pipeline Shared Files"
+parent: Pipeline Shared Files
+grand_parent: Stage 1 Pipelines
 has_children: false
 nav_order: 20
 ---

@@ -118,31 +118,6 @@ optionFamilies:
                 description: "short descriptive text"  
 ```
 
-### Data package declaration
-
-Many MDI Stage 1 Pipelines are designed to create smaller data files suitable
-for loading into a Stage 2 App. Such files are zipped into a single 
-data package file associated with one or more pipeline actions, as follows:
-
-```yml
-# pipeline.yml
-package:
-    actionName1: # the pipeline action after which a data package should assembled
-        uploadType: typeName # a signal to the Stage 2 framework regarding the package contents
-        files:
-            fileType:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
-                type: abc # additional information as to the file type
-                file: $DATA_FILE_PREFIX.xxx.txt    
-    actionName2: 
-        uploadType: typeName
-        extends: actionName1 # the new package will add files to the package from a previous step
-        files: # continue as above
-```
-
-The example above would create two data packages after action1
-and action2, where the action2 file includes all files from action1 
-plus any new ones it added. Most pipelines require zero or one packages.
-
 ### Server environment suggestions
 
 The 'resources' and 'job-manager' keys may be used to indicate
@@ -170,3 +145,28 @@ If present, the _global key must come before condaFamilies and optionFamilies.
 Providing an environment name in _global
 allows you to create, and update (rather than replace), a single conda
 environment for all actions, which sometimes speeds development. 
+
+## Data package declaration
+
+Many MDI Stage 1 Pipelines are designed to create smaller data files suitable
+for loading into a Stage 2 App. Such files are zipped into a single 
+data package file associated with one or more pipeline actions, as follows:
+
+```yml
+# pipeline.yml
+package:
+    actionName1: # the pipeline action after which a data package should assembled
+        uploadType: typeName # a signal to the Stage 2 framework regarding the package contents
+        files:
+            fileType:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
+                type: abc # additional information as to the file type
+                file: $DATA_FILE_PREFIX.xxx.txt    
+    actionName2: 
+        uploadType: typeName
+        extends: actionName1 # the new package will add files to the package from a previous step
+        files: # continue as above
+```
+
+The example above would create two data packages after action1
+and action2, where the action2 file includes all files from action1 
+plus any new ones it added. Most pipelines require zero or one packages.
