@@ -1,8 +1,11 @@
 ---
-published: false
+title: Action Options
+parent: Shared Files
+has_children: false
+nav_order: 30
 ---
 
-## User options for configuring pipeline calls
+## {{page.title}}
 
 **\<suite\>/shared/options** defines typical sets of pipeline configuration
 options, i.e., values that may/must be specified by end users at the command
@@ -42,7 +45,7 @@ a 'default' value.
 The 'order' key:value pairs allows you to control the order the families 
 and their options are listed on help screens.
 
-## Creating shared option families
+### Creating shared option families
 
 Shared option families are defined in YAML configuration files as follows:
 

@@ -6,7 +6,7 @@ nav_order: 999
 published: true
 ---
 
-## Template app
+## {{page.title}}
 
 Folder **shiny/apps/_template** has a working boilerplate for
 a basic Stage 2 app. 

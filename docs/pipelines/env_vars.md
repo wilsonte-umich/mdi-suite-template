@@ -2,10 +2,10 @@
 title: Environment Variables
 parent: Stage 1 Pipelines
 has_children: false
-nav_order: 5
+nav_order: 50
 ---
 
-## Environment variables
+## {{page.title}}
 
 The job launcher sets a number of environment variables that are available
 to your action script. 

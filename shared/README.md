@@ -1,8 +1,11 @@
 ---
-published: false
+title: Shared Files
+parent: Stage 1 Pipelines
+has_children: true
+nav_order: 20
 ---
 
-## Shared components
+## {{page.title}}
 
 MDI Stage 1 Pipelines suites support three types of reusable code 
 components that can be shared between all pipelines in the suite,

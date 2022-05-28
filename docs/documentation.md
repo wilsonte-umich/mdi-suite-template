@@ -7,7 +7,7 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-This template carries the configuration files needed to easily launch a documentation
+The suite template carries the configuration files needed to easily launch a documentation
 web site for your new tools suite repository using a permanent, customized fork 
 of the open source Jekyll theme 
 [Just the Docs](https://github.com/just-the-docs/just-the-docs), called

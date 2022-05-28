@@ -5,7 +5,7 @@ has_children: false
 nav_order: 999
 ---
 
-## Template pipeline
+## {{page.title}}
 
 Folder **pipelines/_template** has a working boilerplate for
 a basic Stage 1 pipeline. 

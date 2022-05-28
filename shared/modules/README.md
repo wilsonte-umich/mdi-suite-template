@@ -1,15 +1,18 @@
 ---
-published: false
+title: Code Modules
+parent: Shared Files
+has_children: false
+nav_order: 20
 ---
 
-## Code modules
+## {{page.title}}
 
 **\<suite\>/shared/modules** defines chunks of execution code relevant 
 to multiple pipelines. There are two types of modules - action modules 
 and step modules. Each of module type might also be used from 
 an external pipelines suite.
 
-## Action modules
+### Action modules
 
 Action modules are fully encapsulated actions that can be added to a 
 pipeline as follows:
@@ -75,7 +78,7 @@ The calling pipeline and/or suite, not the module's tool suite,
 are responsible for _building_ the required conda environment or 
 Singularity container using the definitions provided by an action module.
 
-## Step modules
+### Step modules
 
 Step modules provide reusable code files that can be called
 within a pipeline action that you configured yourself. Use of code in this 
@@ -90,7 +93,7 @@ snakemake --snakefile $MODULES_DIR/example/path/Snakefile
 The environment variable $MODULES_DIR is available to all running pipelines 
 to provide easy access to module files.
 
-## External modules
+### External modules
 
 A pipeline may also use a module of either type from a different pipelines suite, 
 which must also be installed into the working MDI directory by setting 
@@ -118,7 +121,7 @@ relative to the calling pipelines suite, not the external suite. Thus, the
 author of the external module must generally have anticipated it would be
 used by other suites by ensuring that all file paths resolve properly.
 
-## Module versioning
+### Module versioning
 
 The version of a shared module is implicitly derived from the version of 
 its parent suite, i.e., setting the version of a tool suite always yields 

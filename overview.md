@@ -18,7 +18,7 @@ which you can use to create your own suite of Stage 1 Pipelines and Stage 2 Apps
 
 - <https://github.com/MiDataInt/mdi-suite-template>
 
-## Quick start
+### Quick start
 
 [**Click here**](https://github.com/MiDataInt/mdi-suite-template/generate) 
 to create a new tool suite repository from the template.

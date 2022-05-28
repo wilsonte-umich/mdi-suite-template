@@ -6,8 +6,6 @@ has_children: false
 nav_order: 1
 ---
 
-{% include table-of-contents.md %}
-
 ## Overview
 
 **appSteps** share the properties of all MDI/Shiny modules
