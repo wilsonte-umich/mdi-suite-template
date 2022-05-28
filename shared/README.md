@@ -1,8 +1,11 @@
 ---
-published: false
+title: Pipeline Shared Files
+parent: Stage 1 Pipelines
+has_children: true
+nav_order: 30
 ---
 
-## Shared components
+## {{page.title}}
 
 MDI Stage 1 Pipelines suites support three types of reusable code 
 components that can be shared between all pipelines in the suite,
@@ -14,9 +17,6 @@ which are defined in the '**\<suite\>/shared**' folder.
 
 In all cases, the components are effectively placed inline into the 
 pipeline.yml file that configures a specific pipeline.
-
-Please see the environments, modules, and options documentation
-for more information.
 
 ### Private vs. shared components
 

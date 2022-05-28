@@ -2,12 +2,10 @@
 title: App-Specific Files
 parent: Stage 2 Apps
 has_children: false
-nav_order: 1
+nav_order: 10
 ---
 
-{% include table-of-contents.md %}
-
-## App folders
+## {{page.title}}
 
 Each folder in **.../shiny/apps** has files that define 
 the behavior of a single app (i.e., one Shiny data analysis interface). 
@@ -30,11 +28,6 @@ with config.yml and server.R when the app loads
 - types
 - ui
 - utilities 
-
-## Quick start
-
-Start by copying and modifying the '_template' app, which provides 
-a working boilerplate for all required code. Read the comments and go.
 
 ## Stage 2 versioning
 

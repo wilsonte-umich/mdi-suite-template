@@ -1,12 +1,12 @@
 ---
 title: S3 Classes
-parent: Shared Files
+parent: App Shared Files
 grand_parent: Stage 2 Apps
 has_children: false
 nav_order: 1
 ---
 
-## S3 classes
+## {{page.title}}
 
 Files in **global/classes** define the object oriented programming (OOP)
 components of Stage 2 apps, as R S3 classes.

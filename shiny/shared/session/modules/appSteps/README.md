@@ -6,9 +6,7 @@ has_children: false
 nav_order: 1
 ---
 
-{% include table-of-contents.md %}
-
-## Overview
+## {{page.title}}
 
 **appSteps** share the properties of all MDI/Shiny modules
 but have a specific purpose of defining one sequential app

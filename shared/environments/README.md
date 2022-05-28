@@ -1,8 +1,12 @@
 ---
-published: false
+title: Conda Environments
+parent: Pipeline Shared Files
+grand_parent: Stage 1 Pipelines
+has_children: false
+nav_order: 10
 ---
 
-## Conda runtime environments
+## {{page.title}}
 
 **\<suite\>/shared/environments** carries Anaconda/Miniconda run-time environment
 configuration files that may be called by pipeline configs as follows:
@@ -35,7 +39,7 @@ loaded, i.e., the last one has highest precedence (e.g., to override
 to a specific program version). However, conda entries for an action
 in pipeline.yml will override entries in any shared environment file. 
 
-## Creating shared environments
+### Creating shared environments
 
 Shared environments are defined in YAML configuration files in 
 'shared/environments' using the following syntax, where 
@@ -47,7 +51,7 @@ channels: ... # often omitted if defined upstream
 dependencies: ...
 ```
 
-## Available conda families
+### Available conda families
 
 The following environment families are provided by the MDI suite template
 as they are typical for many data analysis needs or support the 
@@ -57,7 +61,7 @@ demo, i.e., '_template', pipeline.
 - **empty** = establishes common conda channels only
 - **r-4.1** = adds R and a set of commonly used data packages
 
-## Environment versioning
+### Environment versioning
 
 The version of a shared conda family is implicitly derived from the version of 
 its parent suite, i.e., setting the version of a tool suite always yields 

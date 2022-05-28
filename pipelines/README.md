@@ -1,11 +1,11 @@
 ---
 title: Stage 1 Pipelines
 has_children: true
-nav_order: 1
+nav_order: 20
 published: true # set to false to remove this tab from your suite's doc site
 ---
 
-## Stage 1 Pipelines
+## {{page.title}}
 
 A **pipeline** (also called a workflow) is a single coordinated set
 of data analysis instructions that can be called by name using the

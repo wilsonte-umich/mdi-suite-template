@@ -2,11 +2,11 @@
 title: Template App
 parent: Stage 2 Apps
 has_children: false
-nav_order: 99
+nav_order: 999
 published: true
 ---
 
-## Template app
+## {{page.title}}
 
 Folder **shiny/apps/_template** has a working boilerplate for
 a basic Stage 2 app. 
