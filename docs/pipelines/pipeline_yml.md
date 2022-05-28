@@ -5,7 +5,7 @@ has_children: false
 nav_order: 40
 ---
 
-{{page.title}}
+## {{page.title}}
 
 Each pipeline must have a **pipelines/\<pipeline\>/pipeline.yml**
 configuration file with metadata about the pipeline.  

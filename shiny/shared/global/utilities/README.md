@@ -6,7 +6,7 @@ has_children: false
 nav_order: 1
 ---
 
-## Custom utility functions
+## {{page.title}}
 
 Create as many helper scripts and functions in **shared/utilities** as 
 you would like to help you organize and modularize your code.

@@ -5,7 +5,7 @@ has_children: false
 nav_order: 10
 ---
 
-## App folders
+## {{page.title}}
 
 Each folder in **.../shiny/apps** has files that define 
 the behavior of a single app (i.e., one Shiny data analysis interface). 

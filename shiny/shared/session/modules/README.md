@@ -2,10 +2,10 @@
 title: Shiny Modules
 parent: Stage 2 Apps
 has_children: true
-nav_order: 3
+nav_order: 30
 ---
 
-## Module structure
+## {{page.title}}
 
 **modules** are 
 [R Shiny modules](https://shiny.rstudio.com/articles/modules.html)
@@ -24,7 +24,7 @@ object that can be used by the calling code. Typical return values
 are a list of reactive objects and method functions to be applied to the  
 component or its data.
 
-## Module types
+### Module types
 
 Modules have different roles in MDI apps:
 
@@ -34,7 +34,7 @@ tabs of the MDI web page
 - **widgets** - UI elements, panels, plots, etc. that
 might be placed once or many times by an app
 
-## Module script templates
+### Module script templates
 
 The following code blocks show the structure of a module's UI and server scripts. 
 Replace "myModule" with the name of your module. 
@@ -76,7 +76,7 @@ list(
 })}
 ```
 
-## Using a module
+### Using a module
 
 The following code blocks show how to use your module in calling scripts. 
 It is common to nest modules within modules - the examples show how to 

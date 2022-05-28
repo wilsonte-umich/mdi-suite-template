@@ -5,7 +5,7 @@ has_children: true
 nav_order: 20
 ---
 
-## Shared folder structure
+## {{page.title}}
 
 This **shiny/shared** folder has code components that may be 
 called by multiple analysis apps.
@@ -31,7 +31,7 @@ The **static** folder has fixed content for populating
 pages with text, mostly via markdown rendered in R with
 <code>includeMarkdown(file.path('static/xxx.md'))</code>.
 
-## Recurring code elements
+### Recurring code elements
 
 **classes** are R Shiny S3 classes that define reusable data objects
 for use by developers writing MDI code. Their purpose
@@ -62,7 +62,7 @@ be created within app folders, to be loaded only with that specific
 app. However, it is often desirable to abstract such files to be reusable 
 in other apps.
 
-## Shared code versioning
+### Shared code versioning
 
 Code components in the shared folder are scoped to the
 suite of tools, so the relevant versioning is to create appropriate release 
