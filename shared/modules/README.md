@@ -1,6 +1,6 @@
 ---
 title: Code Modules
-parent: Shared Files
+parent: Pipeline Shared Files
 has_children: false
 nav_order: 20
 ---

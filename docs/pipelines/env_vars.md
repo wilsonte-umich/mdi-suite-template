@@ -2,7 +2,7 @@
 title: Environment Variables
 parent: Stage 1 Pipelines
 has_children: false
-nav_order: 50
+nav_order: 40
 ---
 
 ## {{page.title}}

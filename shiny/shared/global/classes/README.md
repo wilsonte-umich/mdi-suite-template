@@ -1,6 +1,6 @@
 ---
 title: S3 Classes
-parent: Shared Files
+parent: App Shared Files
 grand_parent: Stage 2 Apps
 has_children: false
 nav_order: 1

@@ -1,5 +1,5 @@
 ---
-title: Shared Files
+title: Pipeline Shared Files
 parent: Stage 1 Pipelines
 has_children: true
 nav_order: 20
@@ -17,9 +17,6 @@ which are defined in the '**\<suite\>/shared**' folder.
 
 In all cases, the components are effectively placed inline into the 
 pipeline.yml file that configures a specific pipeline.
-
-Please see the environments, modules, and options documentation
-for more information.
 
 ### Private vs. shared components
 

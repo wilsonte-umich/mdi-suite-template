@@ -49,15 +49,6 @@ pipeline action to restart without repeating previously satisfied
 steps, e.g., if a server crashes during step 3, steps 1 and 2 
 would not need to be repeated.
 
-### Conda environments
-
-All pipelines use conda to construct an appropriate execution
-environment with proper versions of all required program
-dependencies, for explicit version control, reproducibility
-and portability. These might include any program called from 
-the command line or a shell script to do data analysis work.
-
-
 ## Pipeline construction
 
 Create one folder in '\<suite\>/pipelines' for each distinct data 
@@ -72,7 +63,7 @@ Optional files include (see the _template pipeline for usage):
 - 'pipeline.pl', which can be used to set custom environment variables 
 - 'singularity.def', if your pipeline will offer or require a container to run
 
-### Pipeline structure and definition
+### Pipeline configuration file
 
 Begin by editing file **pipeline.yml**, which is the configuration file that establishes your pipeline's identity, options, actions, etc. It dictates how users will provide information to your pipeline and where the pipeline will look for supporting scripts and definitions.
 
@@ -100,7 +91,7 @@ checkPipe
 
 ### Output conventions
 
-Data files written by a pipeline must always be placed into a folder they specify using 
+Data files written by a pipeline must always be placed into a folder the user specifies using 
 options '--output-dir' and '--data-name'. File names should always be prefixed with the value of option
 '--data-name', such that pipeline output files follow the pattern:
 
