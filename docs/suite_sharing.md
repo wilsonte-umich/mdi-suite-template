@@ -96,5 +96,5 @@ When we receive your pull request, we will do a basic level of code review
 to ensure that your suite appears appropriate, identifiable, and not nefarious. 
 We will then either accept your pull request or reply with needed changes/information.
 
-**IMPORTANT** - the MDI team never takes responsibility for your code. You are
-responsible for all outcomes and queries related to the use of your tool suite by any user.
+> **IMPORTANT** - the MDI team never takes responsibility for your code. You are
+> responsible for all outcomes and queries related to the use of your tool suite by any user.
