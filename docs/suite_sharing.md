@@ -30,7 +30,7 @@ installation and use.
 In an mdi-centric installation, the user instead first clones the MDI installation utility:
 
 - [mdi git repository](https://github.com/MiDataInt/mdi) /
-  [documentation]({{ "mdi" | absolute_url }})
+  [documentation](/mdi)
 
 and executes its 'install.sh' script to set up an empty MDI installation. 
 You must then make one or more tool suites known to the MDI installation by editing file 
@@ -77,24 +77,24 @@ gitCredentials <- list(
 
 ### Add your public tools to the MDI suite registry
 
-For maximum visibility within the MDI, you may elect to list your tool suite
-in the main MDI documentation pages. 
+For maximum visibility within the MDI, you may list your tool suite
+in the registry on the main MDI documentation page. 
 
-Only public suites that offer substantive, purposeful, non-malicious tools can be listed in 
-the registry. All code used by your tools must be open source. 
+Only public suites that offer substantive, purposeful, non-malicious tools 
+will be listed in the registry. All code used by your tools must be open source. 
 Otherwise, we place no restrictions on the kind of suites you list. 
 
 The steps for listing your suite are:
 - fork the docs repo: <https://github.com/MiDataInt/midataint.github.io>
-- edit the files in the 'docs/registry' folder as needed
-- make a pull request
+- make a copy of file **/_data/registry/_template.yml** and edit as needed
+- make a pull request to the parent repo
 
-Any sufficiently experienced developer should be able to make the appropriate
-file additions and edits by following the patterns you will find.
+Any developer capable of writing a tool suite should have no problem
+executing these steps by following the comments in _template.yml.
 
 When we receive your pull request, we will do a basic level of code review
-to ensure that your tool suite appears appropriate and not nefarious, after
-which we will accept your pull request. Otherwise, we will reply with needed changes.
+to ensure that your suite appears appropriate, identifiable, and not nefarious. 
+We will then either accept your pull request or reply with needed changes/information.
 
-DISCLAIMER: the MDI team does not ever take responsibility for your code - you are
-responsible for all outcomes related to the use of your code by any user.
+**IMPORTANT** - the MDI team never takes responsibility for your code. You are
+responsible for all outcomes and queries related to the use of your tool suite by any user.
