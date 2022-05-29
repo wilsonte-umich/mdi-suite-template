@@ -30,7 +30,7 @@ installation and use.
 In an mdi-centric installation, the user instead first clones the MDI installation utility:
 
 - [mdi git repository](https://github.com/MiDataInt/mdi) /
-  [documentation]({{ "mdi" | absolute_url }})
+  [documentation](/mdi)
 
 and executes its 'install.sh' script to set up an empty MDI installation. 
 You must then make one or more tool suites known to the MDI installation by editing file 
