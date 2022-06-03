@@ -39,16 +39,6 @@ execute:  # the list of actions to execute
     - do  # 'do' is the standardized name for a single-action pipeline
 ```
 
-### Action steps
-
-Each pipeline action might finally be executed as a series of 
-sequential **steps**, organized into action subfolders.
-Steps are executed in series from a single pipeline action call.
-Their success can be independently monitored to allow a 
-pipeline action to restart without repeating previously satisfied 
-steps, e.g., if a server crashes during step 3, steps 1 and 2 
-would not need to be repeated.
-
 ## Pipeline construction
 
 Create one folder in '\<suite\>/pipelines' for each distinct data 

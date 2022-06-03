@@ -36,11 +36,20 @@ to find lines to edit to match your needs:
 - README.md (delete the developer instructions, if desired)
 
 Then copy and modify the '_template' pipeline or app, which provides a working 
-boilerplate for all required tool code. 
+boilerplate for all required code. 
 
-The remainder of these documentation pages will walk you through
+### Further documentation
+
+The rest of these pages walk you through
 the basic structure of pipeline and app assemblies and 
-provide a handy working reference as you write code.
+provide a working reference as you write code.
+
+In addition, you will want to look at the documentation for the
+pipelines and apps frameworks that provide support functions
+for writing tools:
+
+- [Stage 1 pipelines framework](/mdi-pipelines-framework)
+- [Stage 2 apps framework](/mdi-apps-framework)
 
 <!-- please do not alter the next line -->
 {% include mdi-project-documentation.md %}
