@@ -100,7 +100,7 @@ list(
     outcomes = list(
         analysisSetName = reactive(...) # used for default naming of bookmark files
     ),
-    loadSourceFile = function(incomingFile, suppressUnlink) ... # data passed from the universal launch page
+    loadSourceFile = function(incomingFile, suppressUnlink)  # data passed from the universal launch page
 )
 ```
 
