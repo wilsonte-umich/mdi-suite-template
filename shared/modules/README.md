@@ -8,7 +8,7 @@ nav_order: 20
 
 ## {{page.title}}
 
-**\<suite\>/shared/modules** defines chunks of execution code relevant 
+_\<suite\>/shared/modules_ defines chunks of execution code relevant 
 to multiple pipelines. There are two types of modules - action modules 
 and step modules. Each of module type might also be used from 
 an external pipelines suite.
@@ -70,7 +70,7 @@ suite developers have complete control over a module's action
 even when it is called by another suite as an external module.
 
 If inline component families are specified within module.yml,
-they are appended at the end of the working pipeline.yml file 
+they are appended at the end of the working _pipeline.yml_ file 
 during execution and therefore override families of the same name 
 in the calling suite. It is the job of the calling pipeline to  
 manage any collisions in family names between different actions. 
@@ -91,14 +91,14 @@ case would be a module that provides a Snakefile useful to multiple pipelines:
 snakemake --snakefile $MODULES_DIR/example/path/Snakefile
 ```
 
-The environment variable $MODULES_DIR is available to all running pipelines 
+The environment variable `$MODULES_DIR` is available to all running pipelines 
 to provide easy access to module files.
 
 ### External modules
 
 A pipeline may also use a module of either type from a different pipelines suite, 
 which must also be installed into the working MDI directory by setting 
-'suite_dependencies' in the calling suite's _config.yml file.
+'suite_dependencies' in the calling suite's _ _config.yml_ file.
 
 To use an external action module in pipeline.yml, the syntax is:
 
@@ -117,7 +117,7 @@ $SUITES_DIR/<suite>/shared/modules/example/path/<file>
 ```
 
 Care must be taken that file paths within external module scripts respect the fact 
-that many environment variables, e.g., $MODULES_DIR, will be defined 
+that many environment variables, e.g., `$MODULES_DIR`, will be defined 
 relative to the calling pipelines suite, not the external suite. Thus, the 
 author of the external module must generally have anticipated it would be
 used by other suites by ensuring that all file paths resolve properly.
@@ -140,4 +140,4 @@ suiteVersions:
 For internal shared modules, if two pipelines in your tool suite require different 
 versions of a similar module they must have different names so that
 they can be called differently by the two pipelines.
-Alternatively, one pipeline could recreate the module in its pipeline.yml file.
+Alternatively, one pipeline could recreate the module in its _pipeline.yml_ file.

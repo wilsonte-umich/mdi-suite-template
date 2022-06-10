@@ -18,8 +18,8 @@ You might think about adjusting your documentation pages if you prefer one patte
 ### Suite-centric installation
 
 In a suite-centric installation, the user clones and installs a single tool suite.
-The 'install.sh' script provided in the suite template clones the MDI and configures
-the installation for use. A renamable 'run' script, also provided in the template, executes 
+The _install.sh_ script provided in the suite template clones the MDI and configures
+the installation for use. A renamable _run_ script, also provided in the template, executes 
 pipelines and launches a web server specific to the tool suite.
 
 In this way, developers and users can think of the tool suite as the primary unit of 
@@ -32,9 +32,9 @@ In an mdi-centric installation, the user instead first clones the MDI installati
 - [mdi git repository](https://github.com/MiDataInt/mdi) /
   [documentation](/mdi)
 
-and executes its 'install.sh' script to set up an empty MDI installation. 
+and executes its _install.sh_ script to set up an empty MDI installation. 
 You must then make one or more tool suites known to the MDI installation by editing file 
-'mdi/config/suites.yml' as follows:
+_mdi/config/suites.yml_ as follows:
 
 ```yml
 # mdi/config/suites.yml
@@ -63,7 +63,7 @@ above to use your tools.
 If your repository is private, you will need to provide a 
 [GithHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 to clone and use your tool suite. Pass the token to MDI commands by creating file 
-'~/gitCredentials.R' (or, alternatively, 'mdi/gitCredentials.R'):
+_~/gitCredentials.R_ (or, alternatively, _mdi/gitCredentials.R_):
 
 ```r
 # ~/gitCredentials.R
@@ -86,11 +86,11 @@ Otherwise, we place no restrictions on the kind of suites you list.
 
 The steps for listing your suite are:
 - fork the docs repo: <https://github.com/MiDataInt/midataint.github.io>
-- make a copy of file **/_data/registry/_template.yml** and edit as needed
+- make a copy of file _/_data/registry/_template.yml_ and edit as needed
 - make a pull request to the parent repo
 
 Any developer capable of writing a tool suite should have no problem
-executing these steps by following the comments in _template.yml.
+executing these steps by following the comments in _ _template.yml_.
 
 When we receive your pull request, we will do a basic level of code review
 to ensure that your suite appears appropriate, identifiable, and not nefarious. 

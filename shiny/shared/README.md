@@ -7,27 +7,27 @@ nav_order: 20
 
 ## {{page.title}}
 
-This **shiny/shared** folder has code components that may be 
+This _shiny/shared_ folder has code components that may be 
 called by multiple analysis apps.
 
-The **global** folder has scripts that define utility functions
+The _global_ folder has scripts that define utility functions
 that do not depend on user session data.
 They are sourced prior to initialization of a specific
 app and must not depend on <code>app</code> or other session 
 variables, unless they are passed as function arguments.
 
-The **session** folder has scripts that define functions that are
+The _session_ folder has scripts that define functions that are
 potentially specific to a user session or needed to assemble and serve 
 an app. They are sourced after a user commits to a specific app and 
 therefore have <code>app</code> and other session variables 
 implicitly in their scope. 
 
-Scripts in both the **global** and **session** folders are sourced 
+Scripts in both the _global_ and _session_ folders are sourced 
 into the R environment of every user session, i.e.,
 in <code>sessionEnv</code>. This enables hotfixes and rolling updates
 without server restart, only a page reload.
 
-The **static** folder has fixed content for populating 
+The _static_ folder has fixed content for populating 
 pages with text, mostly via markdown rendered in R with
 <code>includeMarkdown(file.path('static/xxx.md'))</code>.
 
@@ -57,7 +57,7 @@ used to implement the framework and handle data.
 
 **utilities** scripts offer functions to get or set various data values.
 
->**modules**, **types**, **ui**, and **utilities** folders can also
+>_modules_, _types_, _ui_, and _utilities_ folders can also
 be created within app folders, to be loaded only with that specific 
 app. However, it is often desirable to abstract such files to be reusable 
 in other apps.

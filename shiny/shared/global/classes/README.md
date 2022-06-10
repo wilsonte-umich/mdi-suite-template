@@ -8,7 +8,7 @@ nav_order: 1
 
 ## {{page.title}}
 
-Files in **global/classes** define the object oriented programming (OOP)
+Files in _global/classes_ define the object oriented programming (OOP)
 components of Stage 2 apps, as R S3 classes.
 
 By convention, a class is defined by scripts named:
@@ -27,7 +27,7 @@ methods and other common logic.
 ### genericMethods.R
 
 If your classes implement non-standard generic S3 methods, 
-you must define them in 'genericMethods.R'. 
+you must define them in _genericMethods.R_. 
 See comments within for details.
 
 For example, your S3 class can implement the standard generic 

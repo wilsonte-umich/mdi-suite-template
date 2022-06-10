@@ -7,7 +7,7 @@ nav_order: 10
 
 ## {{page.title}}
 
-Each folder in **.../shiny/apps** has files that define 
+Each folder in _.../shiny/apps_ has files that define 
 the behavior of a single app (i.e., one Shiny data analysis interface). 
 
 At the root level of the app, these files include
@@ -21,7 +21,7 @@ The name of the app's folder must match the name provided in config.yml.
 
 Optionally, you can organize additional app scripts into the
 following sub-folders, which will be loaded along
-with config.yml and server.R when the app loads
+with _config.yml_ and server.R when the app loads
 (see other pages for a description of files in those folders):
 
 - modules

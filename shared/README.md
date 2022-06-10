@@ -9,25 +9,25 @@ nav_order: 30
 
 MDI Stage 1 Pipelines suites support three types of reusable code 
 components that can be shared between all pipelines in the suite,
-which are defined in the '**\<suite\>/shared**' folder.
+which are defined in the _\<suite\>/shared_ folder.
 
 - **environments** = yml config files that create conda environments for job execution
 - **modules** = script libraries that provide code for use by running pipelines
 - **options** = yml config files that expose option families for job configuration
 
 In all cases, the components are effectively placed inline into the 
-pipeline.yml file that configures a specific pipeline.
+_pipeline.yml_ file that configures a specific pipeline.
 
 ### Private vs. shared components
 
 Environments and options can be defined privately for a 
-pipeline within its 'pipeline.yml' file, used from the shared folder, or both.
+pipeline within its _pipeline.yml_ file, used from the shared folder, or both.
 The framework first looks to see if a component is present in the shared
 folder and loads that configuration first. It then further looks to see 
 if there are pipeline-specific definitions for the named component in 
-pipeline.yml. If no shared component was found, the definition must 
-exist in its entirety in pipeline.yml. If a shared component was found,
-any further definitions in pipeline.yml override the shared configuration.
+_pipeline.yml_. If no shared component was found, the definition must 
+exist in its entirety in _pipeline.yml_. If a shared component was found,
+any further definitions in _pipeline.yml_ override the shared configuration.
 
 Modules, by their nature, are encapsulated components that are 
 always loaded from the 'shared' folder.
@@ -38,7 +38,7 @@ Component sharing can extend beyond a single tool suite, such that
 pipeline.yml may also attempt to load an environment, module, or option 
 family from a different tool suite, which must also be installed into 
 the working MDI directory by setting 'suite_dependencies' in the calling suite's
-_config.yml file.
+_ _config.yml_ file.
 
 ```yml
 # _config.yml

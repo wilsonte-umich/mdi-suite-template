@@ -63,12 +63,12 @@ container:
 ```
 
 Note that suite-level containers take precedence, so set `containers:supported` to false
-in _config.yml if you intend to support pipeline-level containers.
+in _ _config.yml_ if you intend to support pipeline-level containers.
 
 ### Container configuration via singularity.def
 
 The operating system and system libraries to be made available in 
-your container are specified in ‘singularity.def’, while program dependencies are 
+your container are specified in _singularity.def_, while program dependencies are 
 provided by conda environments pre-installed into the container. In other words,
 containers still rely on proper condaFamilies declarations, what differs is where
 the conda environments are built and by whom.
@@ -77,7 +77,7 @@ A complete description of Singularity definition files is beyond our scope
 (see link above), but fortunately most developers can simply use singularity.def
 as it is provided in the suite template.  Otherwise, you might think about changing:
 
-```
+```yml
 # singularity.def
 
 # declare the operating system

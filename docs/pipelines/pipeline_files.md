@@ -13,7 +13,7 @@ the behavior of a single pipeline, a.ka. workflow.
 ### Pipeline actions
 
 Each MDI pipeline must have one or more **actions** defined
-in 'pipeline.yml' and organized into pipeline subfolders.
+in _pipeline.yml_ and organized into pipeline subfolders.
 Actions are entered by users at the command line or in
 data.yml configuration files.
 
@@ -41,30 +41,30 @@ execute:  # the list of actions to execute
 
 ## Pipeline construction
 
-Create one folder in '\<suite\>/pipelines' for each distinct data 
+Create one folder in _\<suite\>/pipelines_ for each distinct data 
 analysis pipeline carried in your suite. Each pipeline 
 might define its own specific code and/or use code elements 
-in the '\<suite\>/shared' folder.
+in the _\<suite\>/shared_ folder.
 
-Only one file is essential and must be present, called 'pipeline.yml'.
+Only one file is essential and must be present, called _pipeline.yml_.
 
 Optional files include (see the _template pipeline for usage):
-- 'README.md', to document the pipeline 
-- 'pipeline.pl', which can be used to set custom environment variables 
-- 'singularity.def', if your pipeline will offer or require a container to run
+- _README.md_, to document the pipeline 
+- _pipeline.pl_, which can be used to set custom environment variables 
+- _singularity.def_, if your pipeline will offer or require a container to run
 
 ### Pipeline configuration file
 
-Begin by editing file **pipeline.yml**, which is the configuration file that establishes your pipeline's identity, options, actions, etc. It dictates how users will provide information to your pipeline and where the pipeline will look for supporting scripts and definitions.
+Begin by editing file _pipeline.yml_, which is the configuration file that establishes your pipeline's identity, options, actions, etc. It dictates how users will provide information to your pipeline and where the pipeline will look for supporting scripts and definitions.
 
 ### Pipeline actions
 
 Next, create a subfolder in your pipeline directory for each discrete **action**
-defined in pipeline.yml. Many pipelines only require one action, which by convention is called 'do'. Alternatively, you might need multiple actions executed independently, e.g., a first action 'analyze' applied to individual samples followed by a second action 'compare' that integrates information from multiple samples.
+defined in _pipeline.yml_. Many pipelines only require one action, which by convention is called 'do'. Alternatively, you might need multiple actions executed independently, e.g., a first action 'analyze' applied to individual samples followed by a second action 'compare' that integrates information from multiple samples.
 
-By convention, the target script in an action folder is called '**Workflow.sh**' - 
+By convention, the target script in an action folder is called **Workflow.sh** - 
 it is the script that performs the work of the pipeline action.
-There are no restrictions on exactly how Workflow.sh does its work. You may incorporate 
+There are no restrictions on exactly how _Workflow.sh_ does its work. You may incorporate 
 other code, make calls to programs, including calls to nested workflow managers such as snakemake, etc. 
 One common pattern might be:
 
@@ -132,4 +132,4 @@ If you do not provide a version for an external tool suite,
 the latest version of that suite will be used.
 
 If you only use pipeline code from within your own tool suite, the 
-suiteVersions dictionary can be omitted from pipeline.yml.
+suiteVersions dictionary can be omitted from _pipeline.yml_.

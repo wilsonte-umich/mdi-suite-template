@@ -8,7 +8,7 @@ nav_order: 1
 
 ## {{page.title}}
 
-Create as many helper scripts and functions in **shared/utilities** as 
+Create as many helper scripts and functions in _shared/utilities_ as 
 you would like to help you organize and modularize your code.
 
 Any scripts here are sourced after the framework utility scripts

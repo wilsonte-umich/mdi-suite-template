@@ -27,7 +27,7 @@ myAppStepUI <- function(id, options)
 ```
 
 The options object is a nested R list with the module's configuration options,
-as defined by the module's **module.yml** and the calling app's **config.yml** files.
+as defined by the module's _module.yml_ and the calling app's _config.yml_ files.
 
 ### Element definition
 
@@ -100,7 +100,7 @@ list(
     outcomes = list(
         analysisSetName = reactive(...) # used for default naming of bookmark files
     ),
-    loadSourceFile = function(incomingFile, suppressUnlink) ... # data passed from the universal launch page
+    loadSourceFile = function(incomingFile, suppressUnlink)  # data passed from the universal launch page
 )
 ```
 
