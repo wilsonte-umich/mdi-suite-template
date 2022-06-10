@@ -86,7 +86,7 @@ Otherwise, we place no restrictions on the kind of suites you list.
 
 The steps for listing your suite are:
 - fork the docs repo: <https://github.com/MiDataInt/midataint.github.io>
-- make a copy of file **/_data/registry/_template.yml** and edit as needed
+- make a copy of file _/_data/registry/_template.yml_ and edit as needed
 - make a pull request to the parent repo
 
 Any developer capable of writing a tool suite should have no problem

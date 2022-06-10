@@ -17,7 +17,7 @@ MDI::install() to discover the R packages to install.
 ### Component R package dependencies
 
 Any app, module, or other component can also declare its need
-for a specific R package in its **module.yml** or **config.yml** file
+for a specific R package in its _module.yml_ or _config.yml_ file
 (there is no harm in relisting a package already listed 
 elsewhere - it will only be installed once):
 

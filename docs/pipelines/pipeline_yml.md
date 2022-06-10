@@ -8,7 +8,7 @@ nav_order: 20
 ## {{page.title}}
 
 Each pipeline must have a configuration file named
-**pipelines/\<pipeline\>/pipeline.yml**
+_pipelines/\<pipeline\>/pipeline.yml_
 with metadata about the pipeline.  
 
 Please see the comments in the _template/pipeline.yml in addition 

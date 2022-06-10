@@ -21,7 +21,7 @@ pipeline.yml file that configures a specific pipeline.
 ### Private vs. shared components
 
 Environments and options can be defined privately for a 
-pipeline within its 'pipeline.yml' file, used from the shared folder, or both.
+pipeline within its _pipeline.yml_ file, used from the shared folder, or both.
 The framework first looks to see if a component is present in the shared
 folder and loads that configuration first. It then further looks to see 
 if there are pipeline-specific definitions for the named component in 

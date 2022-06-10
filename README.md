@@ -253,7 +253,7 @@ Please note that this only works if your repository is public.
 
 Finally, create documentation page files within any folder.
 The easy way is to create [markdown](https://www.google.com/search?q=markdown+bascis) 
-files similar to the 'overview.md' file you edited above.
+files similar to the _overview.md_ file you edited above.
 By placing these as README.md files into the appropriate folders in your file tree,
 users will be able to see them both on GitHub and in your
 documentation web site. 

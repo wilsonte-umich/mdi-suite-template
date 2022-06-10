@@ -13,7 +13,7 @@ the behavior of a single pipeline, a.ka. workflow.
 ### Pipeline actions
 
 Each MDI pipeline must have one or more **actions** defined
-in 'pipeline.yml' and organized into pipeline subfolders.
+in _pipeline.yml_ and organized into pipeline subfolders.
 Actions are entered by users at the command line or in
 data.yml configuration files.
 
@@ -46,16 +46,16 @@ analysis pipeline carried in your suite. Each pipeline
 might define its own specific code and/or use code elements 
 in the '\<suite\>/shared' folder.
 
-Only one file is essential and must be present, called 'pipeline.yml'.
+Only one file is essential and must be present, called _pipeline.yml_.
 
 Optional files include (see the _template pipeline for usage):
-- 'README.md', to document the pipeline 
-- 'pipeline.pl', which can be used to set custom environment variables 
-- 'singularity.def', if your pipeline will offer or require a container to run
+- _README.md_, to document the pipeline 
+- _pipeline.pl_, which can be used to set custom environment variables 
+- _singularity.def_, if your pipeline will offer or require a container to run
 
 ### Pipeline configuration file
 
-Begin by editing file **pipeline.yml**, which is the configuration file that establishes your pipeline's identity, options, actions, etc. It dictates how users will provide information to your pipeline and where the pipeline will look for supporting scripts and definitions.
+Begin by editing file _pipeline.yml_, which is the configuration file that establishes your pipeline's identity, options, actions, etc. It dictates how users will provide information to your pipeline and where the pipeline will look for supporting scripts and definitions.
 
 ### Pipeline actions
 

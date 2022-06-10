@@ -18,9 +18,9 @@ define a specific way of analyzing data that can be:
 Here's how to set an analysis type's parameters and handler functions for
 use by runAnalyses and related modules.
 
-All analysisTypes must provide, in folder **.../analysisTypes/\<typeGroup\>/\<analysisType\>**
+All analysisTypes must provide, in folder _analysisTypes/\<typeGroup\>/\<analysisType\>_
 
-- a **config.yml** file, with members (all are optional):
+- a _config.yml_ file, with members (all are optional):
     - **name** = display name for the analysisType; default = \<analysisType\>
     - **jobType** = how/where the job should be executed; see job_execution.R; default = promise
     - **options** = job execution options, analogous to module settings; see existing prototypes. There are four UI columns for options display; use 'type: empty' for a blank position
@@ -28,11 +28,11 @@ All analysisTypes must provide, in folder **.../analysisTypes/\<typeGroup\>/\<an
     - **classes** = optional data classes used by the analysisType
     - **modules** = optional ui modules used by the analysisType  
     
-- **\<analysisType\>_methods.R** file, with the following S3 generic functions:
+- a _\<analysisType\>_methods.R_ file, with the following S3 generic functions:
     - **setJobParameters.\<analysisType\>** = convert reactives to static values for job promises
     - **executeJob.\<analysisType\>** = do the actual work of the job, potentially within a promise
     - **load.\<analysisType\>** = load the output of executeJob() for use by viewer modules
 
-- a **results viewer Shiny module** used to populate the 'results' uiOutput in module viewResults via files:
+- a results viewer Shiny module used to populate the 'results' uiOutput in module viewResults via files:
     - **\<analysisType\>_ui.R**
     - **\<analysisType\>_server.R**
