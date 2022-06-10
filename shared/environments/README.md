@@ -8,7 +8,7 @@ nav_order: 10
 
 ## {{page.title}}
 
-**\<suite\>/shared/environments** carries Anaconda/Miniconda run-time environment
+_\<suite\>/shared/environments_ carries Anaconda/Miniconda run-time environment
 configuration files that may be called by pipeline configs as follows:
 
 ```yml
@@ -27,7 +27,7 @@ condaFamilies:
 ```
 
 In the example above, 'base' must exist as a shared component, 
-i.e., file 'shared/environments/base.yml' must exist. 'my-conda' might 
+i.e., file _shared/environments/base.yml_ must exist. 'my-conda' might 
 be fully private to the pipeline, or could also be a shared environment
 for which the author needs to override a dependency version, etc.
 
@@ -42,7 +42,7 @@ in pipeline.yml will override entries in any shared environment file.
 ### Creating shared environments
 
 Shared environments are defined in YAML configuration files in 
-'shared/environments' using the following syntax, where 
+_shared/environments_ using the following syntax, where 
 the name of the file is the name of the conda family. 
 
 ```yml
@@ -85,7 +85,7 @@ suiteVersions:
 For internal shared environments, if two pipelines in your tool suite require different 
 versions of a similar conda family they must have different names so that
 they can be called differently by the two pipelines.
-Alternatively, one pipeline could override part of the conda family in its pipeline.yml file,
+Alternatively, one pipeline could override part of the conda family in its _pipeline.yml_ file,
 e.g., setting a specific version of one program in the environment.
 
 For R, Python, and similar versioned languages or platforms, 

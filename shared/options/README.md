@@ -8,7 +8,7 @@ nav_order: 30
 
 ## {{page.title}}
 
-**\<suite\>/shared/options** defines typical sets of pipeline configuration
+_\<suite\>/shared/options_ defines typical sets of pipeline configuration
 options, i.e., values that may/must be specified by end users at the command
 line or in their data.yml file. 
 
@@ -37,7 +37,7 @@ optionFamilies:
 ```
 
 In the example above, 'shared-options' must exist as a shared component, 
-i.e., file 'shared/options/shared-options.yml' must exist. 
+i.e., file _shared/options/shared-options.yml_ must exist. 
 'my-options' might be fully private to the pipeline, or could also be a 
 shared option family for which the author needs to override some configuration
 detail such as changing 'required' from true to false while providing

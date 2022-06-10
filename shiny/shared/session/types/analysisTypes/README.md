@@ -10,7 +10,7 @@ nav_order: 2
 
 An **analysis** is a discrete unit of computational work 
 applied to a data set by a user within a running app. 
-Scripts in the **analysisTypes** folder
+Scripts in the _analysisTypes_ folder
 define a specific way of analyzing data that can be:
 - executed as a synchronous or asynchronous job
 - potentially reused by many apps

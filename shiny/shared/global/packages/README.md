@@ -10,7 +10,7 @@ nav_order: 1
 
 ### Global R package dependencies
 
-Files in **global/packages** declare R packages 
+Files in _global/packages_ declare R packages 
 that are used by one or more apps in a suite. They are read by 
 MDI::install() to discover the R packages to install.
 

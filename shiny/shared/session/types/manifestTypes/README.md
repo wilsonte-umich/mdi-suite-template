@@ -10,11 +10,11 @@ nav_order: 1
 
 A **manifest** is a file provided by a Stage 1 pipeline or data provider
 in a project zip that enumerates a related set of data samples.
-Scripts in the **manifestTypes** folder:
+Scripts in the _manifestTypes_ folder:
 - declare expected metadata in a specific type of manifest file
 - provide handler functions used by sourceFileUpload and related modules
 
-All manifestTypes, e.g., 'manifestTypes$xyz', must be a **list** with members:
+All manifestTypes, e.g., `manifestTypes$xyz`, must be a **list** with members:
 
 ```r
 manifestTypes$xyz <- list(
