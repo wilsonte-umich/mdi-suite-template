@@ -7,7 +7,7 @@ nav_order: 0
       e.g, "My Tools", which will appear on the menu tab item -->
 
 <!-- please do not alter the next line -->
-{% include mdi-project-overview.md %} 
+{% include mdi-project-overview.md %}  
 
 
 <!-- replace this section with markdown content describing your tool suite -->
