@@ -21,7 +21,7 @@ The name of the app's folder must match the name provided in config.yml.
 
 Optionally, you can organize additional app scripts into the
 following sub-folders, which will be loaded along
-with _config.yml_ and server.R when the app loads
+with _config.yml_ and _server.R_ when the app loads
 (see other pages for a description of files in those folders):
 
 - modules

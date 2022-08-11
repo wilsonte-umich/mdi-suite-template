@@ -28,11 +28,11 @@ actions:
 ```
 
 Thus, you assign a name to the module that is most informative in
-the context of your pipeline. You can also declare an 'order' and
-'thread' appropriate to your pipeline, as these are never set by
+the context of your pipeline. You can also declare an `order` and
+`thread` appropriate to your pipeline, as these are never set by
 the module. Do not set any of the other typical config values
 associated with actions (e.g., optionFamilies), they are defined
-by the module. Similarly, _global definitions are not applied
+by the module. Similarly, `_global` definitions are not applied
 to shared action modules, which are intended to be self-contained.
 
 When writing an action module, use this format:
@@ -64,7 +64,7 @@ optionFamilies:
     inline-family: ...
 ```
 
-All condaFamilies and optionFamilies in module.yml are interpreted 
+All `condaFamilies` and `optionFamilies` in _module.yml_ are interpreted 
 relative to the module's suite, not the calling suite, so that
 suite developers have complete control over a module's action
 even when it is called by another suite as an external module.
@@ -76,7 +76,7 @@ in the calling suite. It is the job of the calling pipeline to
 manage any collisions in family names between different actions. 
 
 The calling pipeline and/or suite, not the module's tool suite, 
-are responsible for _building_ the required conda environment or 
+are responsible for building the required conda environment or 
 Singularity container using the definitions provided by an action module.
 
 ### Step modules
@@ -98,7 +98,7 @@ to provide easy access to module files.
 
 A pipeline may also use a module of either type from a different pipelines suite, 
 which must also be installed into the working MDI directory by setting 
-'suite_dependencies' in the calling suite's _ _config.yml_ file.
+`suite_dependencies` in the calling suite's _\_config.yml_ file.
 
 To use an external action module in pipeline.yml, the syntax is:
 

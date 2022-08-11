@@ -11,7 +11,7 @@ Each pipeline must have a configuration file named
 _pipelines/\<pipeline\>/pipeline.yml_
 with metadata about the pipeline.  
 
-Please see the comments in the _ _template/pipeline.yml_ in addition 
+Please see the comments in the _\_template/pipeline.yml_ in addition 
 to the guidance below. Only non-obvious sections not covered 
 well elsewhere are described here.
 
@@ -41,18 +41,18 @@ actions:
         description: "short descriptive text"   
 ```
 
-All action tags are optional except 'description'. 
+All action tags are optional except `description`. 
 
 ### Execution threads
 
 When work is submitted to the job scheduler, the default behavior
 is for all jobs to run in series. Sometimes you may want different 
-actions to run in parallel. This is achieved using the 'thread' key,
-by giving parallel actions different thread names. The 'submit' action
+actions to run in parallel. This is achieved using the `thread` key,
+by giving parallel actions different thread names. The `submit` action
 will make a job dependent on a job before it if, and only if, it
 has the same thread name. 
 
-Most often, the 'thread' key can be omitted.
+Most often, the `thread` key can be omitted.
 
 ### condaFamilies
 
@@ -83,18 +83,18 @@ condaFamilies:
 ```
 
 The name of the family to associate with the action is listed under 
-'actions'. The family is defined under 'condaFamilies' at root level
-in pipeline.yml, or in a shared environment file. Indeed, the point
+`actions`. The family is defined under `condaFamilies` at root level
+in _pipeline.yml_, or in a shared environment file. Indeed, the point
 of calling families by name is that they can be shared easily.
 
-If the 'environment' key is not null, it is used as the name of 
+If the `environment` key is not null, it is used as the name of 
 the environment directory, otherwise a unique name is derived 
 from a hash of the environment contents.
 
 ### optionFamilies
 
-You expose options settable by the user via the optionFamilies key,
-in a format that directly mirrors condaFamilies, except that now
+You expose options settable by the user via the `optionFamilies` key,
+in a format that directly mirrors  `condaFamilies`, except that now
 the family lists options with the obvious set of keys below:
 
 ```yml
@@ -120,14 +120,14 @@ optionFamilies:
 
 ### Server environment suggestions
 
-The 'resources' and 'job-manager' keys may be used to indicate
+The `resources` and `job-manager` keys may be used to indicate
 the required and/or recommended system resources for an action,
 according to the format indicated. RAM value require a single-letter suffix.
 
 ### Sharing family declarations between actions
 
 Sometimes different pipeline actions share common family declarations.
-You may be able to simplify your pipeline.yml file by using the '_global'
+You may be able to simplify your pipeline.yml file by using the `_global`
 key as follows:
 
 ```yml
@@ -139,10 +139,10 @@ actions:
         optionFamilies:
 ```
 
-Any entry in _global is applied equally to all pipeline actions.
-If present, the _global key must come before condaFamilies and optionFamilies.
+Any entry in `_global` is applied equally to all pipeline actions.
+If present, the `_global` key must come before `condaFamilies` and `optionFamilies`.
 
-Providing an environment name in _global
+Providing an environment name in `_global`
 allows you to create, and update (rather than replace), a single conda
 environment for all actions, which sometimes speeds development. 
 
@@ -167,6 +167,6 @@ package:
         files: # continue as above
 ```
 
-The example above would create two data packages after action1
-and action2, where the action2 file includes all files from action1 
+The example above would create two data packages after `actionName1`
+and `actionName2`, where the `actionName2` file includes all files from `actionName1` 
 plus any new ones it added. Most pipelines require zero or one packages.

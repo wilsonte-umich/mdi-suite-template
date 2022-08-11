@@ -10,9 +10,9 @@ nav_order: 30
 
 _\<suite\>/shared/options_ defines typical sets of pipeline configuration
 options, i.e., values that may/must be specified by end users at the command
-line or in their data.yml file. 
+line or in their _data.yml_ file. 
 
-Options are organized into optionFamilies for clarity of presentation
+Options are organized into `optionFamilies` for clarity of presentation
 and easier reading of configuration files. Option families can be invoked 
 by pipeline configuration files as follows:
 
@@ -40,10 +40,10 @@ In the example above, 'shared-options' must exist as a shared component,
 i.e., file _shared/options/shared-options.yml_ must exist. 
 'my-options' might be fully private to the pipeline, or could also be a 
 shared option family for which the author needs to override some configuration
-detail such as changing 'required' from true to false while providing
-a 'default' value.
+detail such as changing `required` from true to false while providing
+a `default` value.
 
-The 'order' key:value pairs allows you to control the order the families 
+The `order` key:value pairs allows you to control the order the families 
 and their options are listed on help screens.
 
 ### Creating shared option families
