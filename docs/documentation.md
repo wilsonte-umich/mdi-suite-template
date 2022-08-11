@@ -8,7 +8,7 @@ published: true # set to false to remove this tab from your suite's doc site
 ## {{page.title}}
 
 The suite template carries the configuration files needed to easily launch a documentation
-web site for your new tools suite repository using a permanent, customized fork 
+web site for your new tools suite using a permanent, customized fork 
 of the open source Jekyll theme 
 [Just the Docs](https://github.com/just-the-docs/just-the-docs), called
 [just-the-docs-mdi](https://github.com/MiDataInt/just-the-docs-mdi).
@@ -34,8 +34,8 @@ Activate your new documentation site for loading via github.io as follows:
 - edit the "Source" to be branch 'main' and folder '/root'
 - click 'Save'
   
-After about a minute, your site will be live at the link indicated on the
-Settings / Pages page.  It will track your repository to keep your site up
+After about a minute, your site will be live at the link indicated on
+Settings / Pages.  It will track your repository to keep your site up
 to date whenever you push or merge changes into the 'main' branch.
 
 Please note that this only works if your repository is public. 
@@ -55,7 +55,7 @@ Please see the
 [Just the Docs](https://just-the-docs/just-the-docs/) 
 documentation for guidance on how to use the Jekyll front matter
 at the top of each markdown file to create the nested 
-menu items typical of MDI documentation sites. You can see simple 
-examples here to get you going:
+menu items typical of MDI documentation sites. 
+Examples here will get you going:
 
 <https://github.com/MiDataInt/mdi-documentation-template/tree/main/_docs>

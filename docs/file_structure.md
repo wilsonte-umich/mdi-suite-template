@@ -7,7 +7,7 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-The following is a high level outline of a tool suite repository's folders:
+The following is a high-level outline of a tool suite repository's folders:
 
 | Folder          | Subfolder       | Description |  
 | --------------- | --------------- | ------------|  
@@ -19,9 +19,9 @@ The following is a high level outline of a tool suite repository's folders:
 | \|--------      | **options**     | yml files that expose reusable option families for job configuration | 
 | **shiny**       |                 | carries scripts that define **R Shiny Apps** | 
 | \|--------      | **apps**        | subfolders carry scripts that define individual apps | 
-| \|--------      | **shared**      | subfolders carry scripts with code shared by potentially many apps | 
+| \|--------      | **shared**      | subfolders carry scripts with code shared by potentially multiple apps | 
 
-Thus, you should create one subfolder in 'pipelines' or 'shiny/apps' for each distinct
+Thus, you should create one subfolder in `pipelines` or `shiny/apps` for each distinct
 tool in your suite. Those tools can draw on the common code elements that you 
-populate into the 'shared' folders. We encourage the use of shared components, 
+populate into the `shared` folders. We encourage the use of shared components, 
 which is one reason the MDI uses suite repositories carrying multiple related tools.

@@ -37,7 +37,7 @@ The order in which the named conda families are listed under
 "actions: actionName: condaFamilies:" is the order they are
 loaded, i.e., the last one has highest precedence (e.g., to override
 to a specific program version). However, conda entries for an action
-in pipeline.yml will override entries in any shared environment file. 
+in _pipeline.yml_ will override entries in any shared environment file. 
 
 ### Creating shared environments
 
@@ -55,7 +55,7 @@ dependencies: ...
 
 The following environment families are provided by the MDI suite template
 as they are typical for many data analysis needs or support the 
-demo, i.e., '_template', pipeline.
+demo, i.e., _\_template_, pipeline.
 
 - **base** = establishes common conda channels and data tools
 - **empty** = establishes common conda channels only

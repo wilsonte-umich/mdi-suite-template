@@ -7,7 +7,7 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-A **pipeline** (also called a workflow) is a single coordinated set
+A **pipeline** (also called a workflow) is a single, coordinated set
 of data analysis instructions that can be called by name using the
 mdi command line utility, e.g.,
 

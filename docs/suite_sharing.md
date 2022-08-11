@@ -7,33 +7,31 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-All tool suites can be used in either of two patterns we refer to as **suite-centric** and
-**mdi-centric**, depending on whether the tool suite or the MDI is the first installation target.
-Both patterns ultimately use both the MDI and one or more tool suites.
+All tool suites can be used in either a **single-suite** or **multi-suite** pattern, 
+depending on whether the tool suite or the MDI is the first installation target.
 
-Importantly, you do not need to do anything specific in this regard - all
-MDI tool suites implicitly support both suite-centric and mdi-centric installations.
-You might think about adjusting your documentation pages if you prefer one pattern.
+You might want to adjust your documentation if you prefer one pattern, 
+but both are available to users.
 
-### Suite-centric installation
+### Single-suite installation
 
-In a suite-centric installation, the user clones and installs a single tool suite.
-The _install.sh_ script provided in the suite template clones the MDI and configures
-the installation for use. A renamable _run_ script, also provided in the template, executes 
+In a single-suite installation, the user installs just your tool suite.
+The _install.sh_ script in the suite template clones the MDI and configures
+the installation for use. A renamable _run_ script in the template executes 
 pipelines and launches a web server specific to the tool suite.
 
-In this way, developers and users can think of the tool suite as the primary unit of 
-installation and use.
+In this way, developers and users can think of the tool suite as the 
+primary unit of installation and use.
 
-### MDI-centric installation
+### Multi-suite installation
 
-In an mdi-centric installation, the user instead first clones the MDI installation utility:
+In a multi-suite installation, the user instead first clones the MDI installation utility:
 
 - [mdi git repository](https://github.com/MiDataInt/mdi) /
   [documentation](/mdi)
 
 and executes its _install.sh_ script to set up an empty MDI installation. 
-You must then make one or more tool suites known to the MDI installation by editing file 
+They must then make one or more tool suites known to the MDI installation by editing file 
 _mdi/config/suites.yml_ as follows:
 
 ```yml
@@ -44,7 +42,7 @@ suites:
 ```
 
 and repeating the MDI installation.
-Alternatively, you can install new suites from within the Stage 2 web server, 
+Alternatively, they can install new suites from within the Stage 2 web server, 
 or run the following from the command line:
 
 ```bash
@@ -78,7 +76,8 @@ gitCredentials <- list(
 ### Add your public tools to the MDI suite registry
 
 For maximum visibility within the MDI, you may list your tool suite
-in the registry on the main MDI documentation page. 
+in the registry on the 
+[main MDI documentation page](https://midataint.github.io/docs/registry/00_index/). 
 
 Only public suites that offer substantive, purposeful, non-malicious tools 
 will be listed in the registry. All code used by your tools must be open source. 
@@ -90,11 +89,11 @@ The steps for listing your suite are:
 - make a pull request to the parent repo
 
 Any developer capable of writing a tool suite should have no problem
-executing these steps by following the comments in _ _template.yml_.
+executing these steps by following the comments in _\_template.yml_.
 
 When we receive your pull request, we will do a basic level of code review
 to ensure that your suite appears appropriate, identifiable, and not nefarious. 
-We will then either accept your pull request or reply with needed changes/information.
+We will then either accept your pull request or reply with needed changes.
 
 > **IMPORTANT** - the MDI team never takes responsibility for your code. You are
 > responsible for all outcomes and queries related to the use of your tool suite by any user.

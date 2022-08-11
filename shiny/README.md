@@ -7,7 +7,7 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-An **app** is a single coordinated set
+An **app** is a single, coordinated set
 of R Shiny interactive data visualization tools. 
 
 Two kinds of files define a Stage 2 App,

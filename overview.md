@@ -44,7 +44,7 @@ The rest of these pages walk you through
 the basic structure of pipeline and app assemblies and 
 provide a working reference as you write code.
 
-In addition, you will want to look at the documentation for the
+In addition, you will want to explore the documentation for the
 pipelines and apps frameworks that provide support functions
 for writing tools:
 

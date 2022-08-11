@@ -7,7 +7,7 @@ published: true # set to false to remove this tab from your suite's doc site
 
 ## {{page.title}}
 
-Developers can help users speed installation and enjoy the most controlled possible 
+Developers can help users enjoy the fastest and most controlled 
 pipeline execution by supporting Singularity containers.
 You can choose to wrap your entire tool suite, or just individual pipelines, in 
 container images that you distribute in a registry, such as the GitHub Container Registry.
@@ -27,9 +27,9 @@ by editing files (please see comments within for more information):
 - singularity.def
 
 The advantage of this approach is simplicity. 
-A potential disadvantages is the large size of the resulting container.
+A potential disadvantage is the larger size of the resulting container.
 
-An example of the relevant section of _config.yml activated for suite-level containers is:
+An example of the relevant section of _\_config.yml_ activated for suite-level containers is:
 
 ```yml
 # _config.yml
@@ -45,7 +45,7 @@ container:
 
 ### Pipeline-level containers
 
-Alternatively, you may prefer to place individual pipelines into their own containers.
+Alternatively, you may place individual pipelines into their own containers.
 This is accomplished by appropriate edits to:
 
 - pipeline.yml
@@ -63,18 +63,18 @@ container:
 ```
 
 Note that suite-level containers take precedence, so set `containers:supported` to false
-in _ _config.yml_ if you intend to support pipeline-level containers.
+in _\_config.yml_ if you intend to support pipeline-level containers.
 
 ### Container configuration via singularity.def
 
 The operating system and system libraries to be made available in 
 your container are specified in _singularity.def_, while program dependencies are 
 provided by conda environments pre-installed into the container. In other words,
-containers still rely on proper condaFamilies declarations, what differs is where
+containers still rely on proper `condaFamilies` declarations - what differs is where
 the conda environments are built and by whom.
 
 A complete description of Singularity definition files is beyond our scope 
-(see link above), but fortunately most developers can simply use singularity.def
+(see link above), but most developers can simply use _singularity.def_
 as it is provided in the suite template.  Otherwise, you might think about changing:
 
 ```yml
