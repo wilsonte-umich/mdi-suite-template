@@ -49,9 +49,9 @@ appSteps:
                     singular: Example
                     plural: Examples
                     nLevels: 1:10
-    analyze:
-        module: runAnalyses
-        options:
-            analysisTypes:
-                example:
-                    - example
+    # analyze:
+    #     module: runAnalyses
+    #     options:
+    #         analysisTypes:
+    #             example:
+    #                 - example
