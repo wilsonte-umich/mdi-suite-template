@@ -45,51 +45,14 @@ to quickly develop pipelines and apps:
 - [MDI apps framework documentation](https://midataint.github.io/mdi-apps-framework)
 
 ---
-## Quick Start 1: single-suite installation
+## Quick Start Method 1: multi-suite installation (recommended)
 
-In single-suite mode, you will:
-- clone this tool suite repository
-- call its _install.sh_ script to create a suite-specific MDI installation
-- OPTIONAL: call _alias.pl_ to create an alias to the suite's _run_ utility
-- call its _run_ utility to use its tools
+You can install MDI tool suites in one of two ways: as a **multi-suite installation** that carries one or more distinct tool suites (recommended), or as a more contained **single-suite installation** dedicated to just one tool suite.
 
-### Install this tool suite
-
-```bash
-git clone https://github.com/GIT_USER/NAME-mdi-tools.git
-cd NAME-mdi-tools
-./install.sh
-```
-
-### Create an alias to the suite's _run_ utility
-
-```bash
-perl alias.pl NAME # you can use a different alias name if you'd like
-```
-
-### Execute a Stage 1 pipeline from the command line
-
-For help, call the _run_ utility with no arguments.
-
-```bash
-./run
-NAME # if you created an alias above
-```
-
-### Launch the Stage 2 web server
-
-While you can launch the MDI web server using the command line utility,
-it is much better to use the [MDI Desktop app](https://midataint.github.io/mdi-desktop-app),
-which allows you to control both local and remote MDI web servers.
-
----
-## Quick Start 2: multi-suite installation
-
-In multi-suite mode, you will:
-- clone and install the MDI
-- add this tool suite (and potentially others) to your configuration file
-- re-install the MDI to add this tool suite to your MDI installation
-- call the _mdi_ utility to use its tools
+In the recommended multi-suite mode, you will:
+- clone and install the MDI framework
+- add this tool suite (and potentially others) to your MDI installation
+- call the _mdi_ utility to use tools from any installed suite
 
 ### Install the MDI framework
 
@@ -104,46 +67,99 @@ cd mdi
 ./install.sh
 ```
 
-### Add an alias to _.bashrc_ (optional)
+### OPTIONAL: Add an _mdi_ alias to _.bashrc_
 
-These commands will help you create a permanent named alias to the _mdi_
+These commands will create a permanent named alias to the _mdi_
 target script in your new installation.
 
 ```bash
 ./mdi alias --help
 ./mdi alias --alias mdi # change the alias name if you'd like 
-`./mdi alias --alias mdi --get` # activate the alias in the current shell (or log back in)
+`./mdi alias --alias mdi --get` # activate the alias in the current shell (or log out and back in)
 mdi
 ```
 
+Alternatively, you can add the MDI installation directory to your PATH variable,
+or always change into the directory prior to calling _./mdi_.
+
 ### Add this tool suite to your MDI installation
 
-Edit file _mdi/config/suites.yml_ as follows:
+```bash
+./mdi add --help
+./mdi add -p -s GIT_USER/NAME-mdi-tools 
+```
+
+Alternatively, you can perform the required suite addition steps one at a time:
+
+```sh
+nano config/suites.yml # or use any other text editor to edit suites.yml
+```
 
 ```yml
 # mdi/config/suites.yml
 suites:
-    - GIT_USER/NAME-mdi-tools
+    - GIT_USER/NAME-mdi-tools # add this tools suite to the config file
 ```
 
-and re-run _install.sh_. 
-Alternatively, you can install this suite from within the 
-Stage 2 web server, or run the following from the command line:
-
-```bash
-mdi add -p -s GIT_USER/NAME-mdi-tools 
+```sh
+./install.sh # re-install to add the new tool suite
 ```
+
+
 
 ### Execute a Stage 1 pipeline from the command line
 
-For help, call the _mdi_ utility with no arguments.
+For help, call the _mdi_ utility with no arguments, which describes the format for pipeline calls. 
 
 ```bash
-mdi
+./mdi  # call the mdi utility directly without an alias, OR
+mdi    # if you created an alias as described above
 ```
 
-### Launch the Stage 2 web server
+### Launch the Stage 2 web apps server
 
-While you can launch the MDI web server using the command line utility,
-it is much better to use the [MDI Desktop app](https://midataint.github.io/mdi-desktop-app),
+To launch the MDI web server, we recommend using the 
+[MDI Desktop app](https://midataint.github.io/mdi-desktop-app),
 which allows you to control both local and remote MDI web servers.
+
+---
+## Quick Start Method 2: single-suite installation
+
+In the alternative single-suite mode, you will install just this tool suite by:
+- cloning this tool suite repository
+- running _install.sh_ to create a suite-specific MDI installation
+- OPTIONAL: calling _alias.pl_ to create an alias to the suite's _run_ utility
+- calling the _run_ utility to use a tool from the suite
+
+### Install this tool suite
+
+```bash
+git clone https://github.com/GIT_USER/NAME-mdi-tools.git
+cd NAME-mdi-tools
+./install.sh
+```
+
+### OPTIONAL: Create an alias to the suite's _run_ utility
+
+```bash
+perl alias.pl NAME # you can use a different alias name if you'd like
+```
+
+Alternatively, you can add the installation directory to your PATH variable,
+or always change into the directory prior to calling _./run_.
+
+### Execute a Stage 1 pipeline from the command line
+
+For help, call the _run_ utility with no arguments, which describes the format for pipeline calls. 
+
+```bash
+./run  # call the run utility directly without an alias, OR
+NAME # use the alias, if you created it as described above
+```
+
+### Launch the Stage 2 web apps server
+
+To launch the MDI web server, we recommend using the 
+[MDI Desktop app](https://midataint.github.io/mdi-desktop-app),
+which allows you to control both local and remote MDI web servers.
+
