@@ -61,9 +61,9 @@ actions:
             - <suite>//shared-options
 ```
 
-The pipelines framework will only look for external component files
-in definitive suite repositories; we cannot assume that an end 
-user will have an active fork of any given external repository.
+If running in developer mode, the MDI pipelines framework looks for external component files
+in a forked repository first, if it exists. Otherwise, it falls back to using
+files from definitive suite repositories.
 
 ## Shared component versioning
 
