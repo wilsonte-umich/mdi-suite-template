@@ -165,8 +165,15 @@ package:
         uploadType: typeName
         extends: actionName1 # the new package will add files to the package from a previous step
         files: # continue as above
+#    extraPushFiles: # optional extra files pushed to remote servers in addition to the data package but not included in the package
+#        - $TASK_DIR/xxx
 ```
 
 The example above would create two data packages after `actionName1`
 and `actionName2`, where the `actionName2` file includes all files from `actionName1` 
 plus any new ones it added. Most pipelines require zero or one packages.
+
+As noted, you may sometimes wish to specify additional pipeline output files or directories
+to be included when pipeline data are pushed to a remote server. These are typically large
+files accessed by some type of indexing scheme within an app, where bloating the data
+package with the files is undesirable.
