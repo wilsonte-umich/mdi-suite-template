@@ -22,8 +22,8 @@ my $usage = "perl alias.pl ALIAS_NAME\nadds an alias to './run', called ALIAS NA
 # parse the options and apply defaults
 my ($alias) = @ARGV;
 $alias or throwError("missing alias name");
-my $bashrc = "~/.bashrc";
-my $suiteDir = dirname(__FILE__);
+my $bashrc = "$ENV{HOME}/.bashrc";
+my $suiteDir = $ENV{PWD};
 my $aliasCommand = "alias $alias=\"$suiteDir/run\"";
 my $outLine = "$aliasCommand # written by MDI alias\n";
 
