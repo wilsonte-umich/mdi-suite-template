@@ -132,10 +132,10 @@ rm -f  aws-mdi.md .gitignore index.html .lintr overview.md
 #----------------------------------------------------------------------
 # remove the install and run scripts from all nested suite directories
 #----------------------------------------------------------------------
-echo "cleaning up all nested suite directories"
+# echo "cleaning up all nested suite directories"
 NESTED_SUITES_DIR=$MDI_DIR/suites/definitive
-rm -f $NESTED_SUITES_DIR/*/install* 
-rm -f $NESTED_SUITES_DIR/*/run* 
+# rm -f $NESTED_SUITES_DIR/*/install* 
+# rm -f $NESTED_SUITES_DIR/*/run* 
 
 # -----------------------------------------------------------------------
 # function to check for valid singularity
